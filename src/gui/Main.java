@@ -63,9 +63,9 @@ public class Main extends Application {
         logInfo("Loading resources...");
         try {
             logInfo("Loading wsphere.png...");
-            sphereImage = new Image("gui\\resources\\wsphere.png");
+            sphereImage = new Image(Main.class.getResourceAsStream("resources/wsphere.png"));
             logInfo("Loading csphere.png...");
-            selectedSphereImage = new Image("\\gui\\resources\\csphere.png");
+            selectedSphereImage = new Image(Main.class.getResourceAsStream("resources/csphere.png"));
         } catch (IllegalArgumentException e) {
             logSevereAndExit("Problems while loading resources, exiting.");
         }
