@@ -28,6 +28,11 @@ public class GameBoard {
         initializeVectors();
     }
 
+    GameBoard(boolean[][] in){
+        board = in;
+        initializeVectors();
+    }
+
     /* Level constructor */
     GameBoard(int boardId) throws Exception {
         this();
