@@ -2,21 +2,21 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Shot" />
+      <artifact name="Auto-Shot" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1254e996-4334-48af-bd6d-9ad03f4f7b00" name="Default" comment="Create GameBoard Class">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/Auto_Shot.xml" />
+      <change type="DELETED" beforePath="D:\Documents\GitHub\auto-shot\.idea\artifacts\Shot.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GameBoard.java" afterPath="$PROJECT_DIR$/src/gui/GameBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GameBoardTest.java" afterPath="$PROJECT_DIR$/src/gui/GameBoardTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GameWindow.fxml" afterPath="$PROJECT_DIR$/src/gui/GameWindow.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GameWindowController.java" afterPath="$PROJECT_DIR$/src/gui/GameWindowController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Main.java" afterPath="$PROJECT_DIR$/src/gui/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/Shot.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/Shot.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/StartWindow.fxml" afterPath="$PROJECT_DIR$/src/gui/StartWindow.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="D:\Documents\GitHub\auto-shot\Shot.iml" afterPath="$PROJECT_DIR$/Auto-Shot.iml" />
     </list>
-    <ignored path="Shot.iws" />
+    <ignored path="Auto-Shot.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,110 +73,10 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
-    <favorites_list name="Shot" />
+    <favorites_list name="Auto-Shot" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="2142">
-              <caret line="67" column="87" selection-start-line="67" selection-start-column="87" selection-end-line="67" selection-end-column="87" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DebugMain.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/DebugMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="116" max-vertical-offset="1955">
-              <caret line="80" column="83" selection-start-line="80" selection-start-column="83" selection-end-line="80" selection-end-column="83" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameBoard.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gui/GameBoard.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334" vertical-offset="1017" max-vertical-offset="4369">
-              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-              <folding>
-                <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
-                <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
-                <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-                <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
-                <element signature="method#doMoveAuxUp#0;class#GameBoard#0" expanded="false" />
-                <element signature="method#doMoveAuxDown#0;class#GameBoard#0" expanded="false" />
-                <element signature="method#doMoveAuxLeft#0;class#GameBoard#0" expanded="false" />
-                <element signature="method#doMoveAuxRight#0;class#GameBoard#0" expanded="false" />
-                <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
-                <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
-                <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
-                <element signature="e#13081#13082#0" expanded="true" />
-                <element signature="e#13120#13121#0" expanded="true" />
-                <element signature="e#13165#13166#0" expanded="true" />
-                <element signature="e#13214#13215#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameMove.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/GameMove.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1683">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameMoveTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/GameMoveTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1258">
-              <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameWindowController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/GameWindowController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="796" max-vertical-offset="2567">
-              <caret line="247" column="0" selection-start-line="247" selection-start-column="0" selection-end-line="247" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#createEventHandlers#0;class#GameWindowController#0" expanded="false" />
-                <element signature="e#1485#2047#0" expanded="true" />
-                <element signature="e#2036#2037#0" expanded="true" />
-                <element signature="e#2081#3159#0" expanded="true" />
-                <element signature="e#3148#3149#0" expanded="true" />
-                <element signature="e#3190#4456#0" expanded="true" />
-                <element signature="e#4445#4446#0" expanded="true" />
-                <element signature="method#setupBoard#0;class#GameWindowController#0" expanded="false" />
-                <element signature="method#updateBoard#0;class#GameWindowController#0" expanded="false" />
-                <element signature="e#7278#7279#0" expanded="true" />
-                <element signature="e#7339#7340#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StartWindow.fxml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/StartWindow.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="765">
-              <caret line="6" column="82" selection-start-line="6" selection-start-column="82" selection-end-line="6" selection-end-column="82" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -223,7 +123,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
+    <option name="STATE" value="2" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -243,35 +143,17 @@
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Shot" />
+              <option name="myItemId" value="Auto-Shot" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Shot" />
+              <option name="myItemId" value="Auto-Shot" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="auto-shot" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Shot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto-shot" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -288,7 +170,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java/javafx-samples-2.2.51/src/Ensemble" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
@@ -316,7 +198,7 @@
       <recent name="D:\Documents\GitHub\iart\src\gui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Shot">
+  <component name="RunManager" selected="Application.Auto-Shot">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -446,7 +328,7 @@
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <configuration default="false" name="Shot" type="Application" factoryName="Application">
+    <configuration default="false" name="Auto-Shot" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="gui.Main" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -456,7 +338,7 @@
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Shot" />
+      <module name="Auto-Shot" />
       <envs />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="" />
@@ -478,7 +360,7 @@
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Shot" />
+      <module name="Auto-Shot" />
       <envs />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="" />
@@ -491,7 +373,7 @@
       <method />
     </configuration>
     <configuration default="false" name="JUnit GameMove Test" type="JUnit" factoryName="JUnit">
-      <module name="Shot" />
+      <module name="Auto-Shot" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="PACKAGE_NAME" value="gui" />
@@ -513,7 +395,7 @@
       <method />
     </configuration>
     <configuration default="false" name="JUnit GameBoard Test" type="JUnit" factoryName="JUnit">
-      <module name="Shot" />
+      <module name="Auto-Shot" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="PACKAGE_NAME" value="gui" />
@@ -535,7 +417,7 @@
       <method />
     </configuration>
     <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Application.Shot" />
+      <item index="0" class="java.lang.String" itemvalue="Application.Auto-Shot" />
       <item index="1" class="java.lang.String" itemvalue="Application.Debug Menu" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.JUnit GameMove Test" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.JUnit GameBoard Test" />
@@ -564,7 +446,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -576,17 +458,17 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32780084" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14712153" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35062242" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14712153" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35062242" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32780084" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32780084" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39937758" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -617,15 +499,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/GameBoard.java</url>
-          <line>377</line>
+          <line>376</line>
           <properties />
           <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/gui/GameBoard.java</url>
-          <line>73</line>
-          <properties />
-          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="33" />
@@ -640,7 +516,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="33" max-vertical-offset="1071">
           <caret line="11" column="180" selection-start-line="11" selection-start-column="180" selection-end-line="11" selection-end-column="180" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -675,10 +550,6 @@
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
-            <element signature="e#13081#13082#0" expanded="true" />
-            <element signature="e#13120#13121#0" expanded="true" />
-            <element signature="e#13165#13166#0" expanded="true" />
-            <element signature="e#13214#13215#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -707,10 +578,6 @@
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
-            <element signature="e#13081#13082#0" expanded="true" />
-            <element signature="e#13120#13121#0" expanded="true" />
-            <element signature="e#13165#13166#0" expanded="true" />
-            <element signature="e#13214#13215#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -733,20 +600,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="221">
           <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#createEventHandlers#0;class#GameWindowController#0" expanded="false" />
-            <element signature="e#1485#2047#0" expanded="true" />
-            <element signature="e#2036#2037#0" expanded="true" />
-            <element signature="e#2081#3159#0" expanded="true" />
-            <element signature="e#3148#3149#0" expanded="true" />
-            <element signature="e#3190#4456#0" expanded="true" />
-            <element signature="e#4445#4446#0" expanded="true" />
-            <element signature="method#setupBoard#0;class#GameWindowController#0" expanded="false" />
-            <element signature="method#updateBoard#0;class#GameWindowController#0" expanded="false" />
-            <element signature="e#7278#7279#0" expanded="true" />
-            <element signature="e#7339#7340#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -754,7 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="350" max-vertical-offset="1071">
           <caret line="46" column="105" selection-start-line="46" selection-start-column="105" selection-end-line="46" selection-end-column="105" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -789,10 +642,6 @@
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
-            <element signature="e#13081#13082#0" expanded="true" />
-            <element signature="e#13120#13121#0" expanded="true" />
-            <element signature="e#13165#13166#0" expanded="true" />
-            <element signature="e#13214#13215#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -815,20 +664,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="221">
           <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#createEventHandlers#0;class#GameWindowController#0" expanded="false" />
-            <element signature="e#1485#2047#0" expanded="true" />
-            <element signature="e#2036#2037#0" expanded="true" />
-            <element signature="e#2081#3159#0" expanded="true" />
-            <element signature="e#3148#3149#0" expanded="true" />
-            <element signature="e#3190#4456#0" expanded="true" />
-            <element signature="e#4445#4446#0" expanded="true" />
-            <element signature="method#setupBoard#0;class#GameWindowController#0" expanded="false" />
-            <element signature="method#updateBoard#0;class#GameWindowController#0" expanded="false" />
-            <element signature="e#7278#7279#0" expanded="true" />
-            <element signature="e#7339#7340#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -836,7 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="88" max-vertical-offset="1071">
           <caret line="46" column="105" selection-start-line="46" selection-start-column="105" selection-end-line="46" selection-end-column="105" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -871,10 +706,6 @@
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
-            <element signature="e#13081#13082#0" expanded="true" />
-            <element signature="e#13120#13121#0" expanded="true" />
-            <element signature="e#13165#13166#0" expanded="true" />
-            <element signature="e#13214#13215#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -897,20 +728,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="221">
           <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#createEventHandlers#0;class#GameWindowController#0" expanded="false" />
-            <element signature="e#1485#2047#0" expanded="true" />
-            <element signature="e#2036#2037#0" expanded="true" />
-            <element signature="e#2081#3159#0" expanded="true" />
-            <element signature="e#3148#3149#0" expanded="true" />
-            <element signature="e#3190#4456#0" expanded="true" />
-            <element signature="e#4445#4446#0" expanded="true" />
-            <element signature="method#setupBoard#0;class#GameWindowController#0" expanded="false" />
-            <element signature="method#updateBoard#0;class#GameWindowController#0" expanded="false" />
-            <element signature="e#7278#7279#0" expanded="true" />
-            <element signature="e#7339#7340#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -918,7 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="1071">
           <caret line="46" column="105" selection-start-line="46" selection-start-column="105" selection-end-line="46" selection-end-column="105" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -953,10 +770,6 @@
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
-            <element signature="e#13081#13082#0" expanded="true" />
-            <element signature="e#13120#13121#0" expanded="true" />
-            <element signature="e#13165#13166#0" expanded="true" />
-            <element signature="e#13214#13215#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -979,20 +792,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="221">
           <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#createEventHandlers#0;class#GameWindowController#0" expanded="false" />
-            <element signature="e#1485#2047#0" expanded="true" />
-            <element signature="e#2036#2037#0" expanded="true" />
-            <element signature="e#2081#3159#0" expanded="true" />
-            <element signature="e#3148#3149#0" expanded="true" />
-            <element signature="e#3190#4456#0" expanded="true" />
-            <element signature="e#4445#4446#0" expanded="true" />
-            <element signature="method#setupBoard#0;class#GameWindowController#0" expanded="false" />
-            <element signature="method#updateBoard#0;class#GameWindowController#0" expanded="false" />
-            <element signature="e#7278#7279#0" expanded="true" />
-            <element signature="e#7339#7340#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1000,7 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="952">
           <caret line="49" column="11" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1020,10 +819,6 @@
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
-            <element signature="e#13081#13082#0" expanded="true" />
-            <element signature="e#13120#13121#0" expanded="true" />
-            <element signature="e#13165#13166#0" expanded="true" />
-            <element signature="e#13214#13215#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1046,20 +841,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="221">
           <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#createEventHandlers#0;class#GameWindowController#0" expanded="false" />
-            <element signature="e#1485#2047#0" expanded="true" />
-            <element signature="e#2036#2037#0" expanded="true" />
-            <element signature="e#2081#3159#0" expanded="true" />
-            <element signature="e#3148#3149#0" expanded="true" />
-            <element signature="e#3190#4456#0" expanded="true" />
-            <element signature="e#4445#4446#0" expanded="true" />
-            <element signature="method#setupBoard#0;class#GameWindowController#0" expanded="false" />
-            <element signature="method#updateBoard#0;class#GameWindowController#0" expanded="false" />
-            <element signature="e#7278#7279#0" expanded="true" />
-            <element signature="e#7339#7340#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1087,10 +869,6 @@
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
-            <element signature="e#13081#13082#0" expanded="true" />
-            <element signature="e#13120#13121#0" expanded="true" />
-            <element signature="e#13165#13166#0" expanded="true" />
-            <element signature="e#13214#13215#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1127,42 +905,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25585285" vertical-offset="0" max-vertical-offset="697">
           <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-          <folding>
-            <element signature="method#testGetAvailableMoves#0;class#GameBoardTest#0" expanded="false" />
-            <element signature="method#testDoMove#0;class#GameBoardTest#0" expanded="false" />
-            <element signature="method#testUndoMove#0;class#GameBoardTest#0" expanded="false" />
-            <element signature="method#testRedoMove#0;class#GameBoardTest#0" expanded="false" />
-            <element signature="method#testGetBoardPiece#0;class#GameBoardTest#0" expanded="false" />
-            <element signature="method#testGetNumberOfPiecesLeft#0;class#GameBoardTest#0" expanded="false" />
-            <element signature="method#testBoardSolvedOnVictory#0;class#GameBoardTest#0" expanded="false" />
-            <element signature="method#testBoardSolvedOnLoss#0;class#GameBoardTest#0" expanded="false" />
-            <element signature="method#testBoardLostOnVictory#0;class#GameBoardTest#0" expanded="false" />
-            <element signature="method#testBoardLostOnLoss#0;class#GameBoardTest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/DebugMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="116" max-vertical-offset="1955">
-          <caret line="80" column="83" selection-start-line="80" selection-start-column="83" selection-end-line="80" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GameMoveTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="707" max-vertical-offset="1258">
-          <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GameMove.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1683">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1170,7 +912,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8294314" vertical-offset="14" max-vertical-offset="782">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1178,51 +919,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.72649574" vertical-offset="17" max-vertical-offset="1173">
           <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/StartWindow.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <caret line="6" column="82" selection-start-line="6" selection-start-column="82" selection-end-line="6" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="2142">
-          <caret line="67" column="87" selection-start-line="67" selection-start-column="87" selection-end-line="67" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GameWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="796" max-vertical-offset="2567">
-          <caret line="247" column="0" selection-start-line="247" selection-start-column="0" selection-end-line="247" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#createEventHandlers#0;class#GameWindowController#0" expanded="false" />
-            <element signature="e#1485#2047#0" expanded="true" />
-            <element signature="e#2036#2037#0" expanded="true" />
-            <element signature="e#2081#3159#0" expanded="true" />
-            <element signature="e#3148#3149#0" expanded="true" />
-            <element signature="e#3190#4456#0" expanded="true" />
-            <element signature="e#4445#4446#0" expanded="true" />
-            <element signature="method#setupBoard#0;class#GameWindowController#0" expanded="false" />
-            <element signature="method#updateBoard#0;class#GameWindowController#0" expanded="false" />
-            <element signature="e#7278#7279#0" expanded="true" />
-            <element signature="e#7339#7340#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GameBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="1017" max-vertical-offset="4369">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6388889" vertical-offset="541" max-vertical-offset="4284">
+          <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
           <folding>
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
@@ -1235,11 +938,55 @@
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
-            <element signature="e#13081#13082#0" expanded="true" />
-            <element signature="e#13120#13121#0" expanded="true" />
-            <element signature="e#13165#13166#0" expanded="true" />
-            <element signature="e#13214#13215#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/DebugMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36431623" vertical-offset="1002" max-vertical-offset="1955">
+          <caret line="80" column="83" selection-start-line="80" selection-start-column="83" selection-end-line="80" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="2142">
+          <caret line="67" column="87" selection-start-line="67" selection-start-column="87" selection-end-line="67" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/GameMove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1683">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/GameMoveTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.81837606" vertical-offset="322" max-vertical-offset="1258">
+          <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/GameWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2724359" vertical-offset="2515" max-vertical-offset="3944">
+          <caret line="247" column="0" selection-start-line="247" selection-start-column="0" selection-end-line="247" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/StartWindow.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10897436" vertical-offset="0" max-vertical-offset="936">
+          <caret line="6" column="82" selection-start-line="6" selection-start-column="82" selection-end-line="6" selection-end-column="82" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1249,7 +996,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>Shot</last-edited>
+          <last-edited>Auto-Shot</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1297,7 +1044,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Shot</last-edited>
+          <last-edited>Auto-Shot</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

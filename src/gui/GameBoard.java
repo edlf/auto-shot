@@ -71,7 +71,6 @@ public class GameBoard {
 
         /* Add original board to vector */
         gameBoards.add(getBoardCopy());
-        System.out.print("");
     }
 
     private void level1001() throws Exception {
