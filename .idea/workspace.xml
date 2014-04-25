@@ -90,14 +90,12 @@
       <file leaf-file-name="GameBoard.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/GameBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
-              <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1405" max-vertical-offset="2227">
+              <caret line="204" column="68" selection-start-line="204" selection-start-column="68" selection-end-line="204" selection-end-column="68" />
               <folding>
-                <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
                 <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
                 <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
                 <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-                <element signature="method#clearBoard#0;class#GameBoard#0" expanded="false" />
                 <element signature="method#getBoardCopy#0;class#GameBoard#0" expanded="false" />
                 <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
                 <element signature="method#getAvailableMoves#0;class#GameBoard#0" expanded="false" />
@@ -120,13 +118,19 @@
       <file leaf-file-name="GameBoardTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/GameBoardTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6304348" vertical-offset="303" max-vertical-offset="901">
-              <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.14214046" vertical-offset="0" max-vertical-offset="697">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
-                <element signature="method#testIsBoardSolvedOnVictory#0;class#GameBoardTest#0" expanded="false" />
-                <element signature="method#testIsBoardSolvedOnLoss#0;class#GameBoardTest#0" expanded="false" />
-                <element signature="method#testIsBoardLostOnVictory#0;class#GameBoardTest#0" expanded="false" />
-                <element signature="method#testIsBoardLostOnLoss#0;class#GameBoardTest#0" expanded="false" />
+                <element signature="method#testGetAvailableMoves#0;class#GameBoardTest#0" expanded="false" />
+                <element signature="method#testDoMove#0;class#GameBoardTest#0" expanded="false" />
+                <element signature="method#testUndoMove#0;class#GameBoardTest#0" expanded="false" />
+                <element signature="method#testRedoMove#0;class#GameBoardTest#0" expanded="false" />
+                <element signature="method#testGetBoardPiece#0;class#GameBoardTest#0" expanded="false" />
+                <element signature="method#testGetNumberOfPiecesLeft#0;class#GameBoardTest#0" expanded="false" />
+                <element signature="method#testBoardSolvedOnVictory#0;class#GameBoardTest#0" expanded="false" />
+                <element signature="method#testBoardSolvedOnLoss#0;class#GameBoardTest#0" expanded="false" />
+                <element signature="method#testBoardLostOnVictory#0;class#GameBoardTest#0" expanded="false" />
+                <element signature="method#testBoardLostOnLoss#0;class#GameBoardTest#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -628,11 +632,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="1445">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
-            <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#clearBoard#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardCopy#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMoves#0;class#GameBoard#0" expanded="false" />
@@ -664,11 +666,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="1411">
           <caret line="37" column="46" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
           <folding>
-            <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#clearBoard#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardCopy#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMoves#0;class#GameBoard#0" expanded="false" />
@@ -737,11 +737,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="1411">
           <caret line="37" column="46" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
           <folding>
-            <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#clearBoard#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardCopy#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMoves#0;class#GameBoard#0" expanded="false" />
@@ -810,11 +808,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="1411">
           <caret line="37" column="46" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
           <folding>
-            <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#clearBoard#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardCopy#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMoves#0;class#GameBoard#0" expanded="false" />
@@ -883,11 +879,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1411">
           <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
           <folding>
-            <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#clearBoard#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardCopy#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMoves#0;class#GameBoard#0" expanded="false" />
@@ -941,11 +935,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="663">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#clearBoard#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardCopy#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMoves#0;class#GameBoard#0" expanded="false" />
@@ -999,11 +991,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="663">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#clearBoard#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardCopy#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMoves#0;class#GameBoard#0" expanded="false" />
@@ -1123,14 +1113,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GameBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
-          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1405" max-vertical-offset="2227">
+          <caret line="204" column="68" selection-start-line="204" selection-start-column="68" selection-end-line="204" selection-end-column="68" />
           <folding>
-            <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#clearBoard#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardCopy#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getAvailableMoves#0;class#GameBoard#0" expanded="false" />
@@ -1151,13 +1139,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GameBoardTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6304348" vertical-offset="303" max-vertical-offset="901">
-          <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.14214046" vertical-offset="0" max-vertical-offset="697">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="method#testIsBoardSolvedOnVictory#0;class#GameBoardTest#0" expanded="false" />
-            <element signature="method#testIsBoardSolvedOnLoss#0;class#GameBoardTest#0" expanded="false" />
-            <element signature="method#testIsBoardLostOnVictory#0;class#GameBoardTest#0" expanded="false" />
-            <element signature="method#testIsBoardLostOnLoss#0;class#GameBoardTest#0" expanded="false" />
+            <element signature="method#testGetAvailableMoves#0;class#GameBoardTest#0" expanded="false" />
+            <element signature="method#testDoMove#0;class#GameBoardTest#0" expanded="false" />
+            <element signature="method#testUndoMove#0;class#GameBoardTest#0" expanded="false" />
+            <element signature="method#testRedoMove#0;class#GameBoardTest#0" expanded="false" />
+            <element signature="method#testGetBoardPiece#0;class#GameBoardTest#0" expanded="false" />
+            <element signature="method#testGetNumberOfPiecesLeft#0;class#GameBoardTest#0" expanded="false" />
+            <element signature="method#testBoardSolvedOnVictory#0;class#GameBoardTest#0" expanded="false" />
+            <element signature="method#testBoardSolvedOnLoss#0;class#GameBoardTest#0" expanded="false" />
+            <element signature="method#testBoardLostOnVictory#0;class#GameBoardTest#0" expanded="false" />
+            <element signature="method#testBoardLostOnLoss#0;class#GameBoardTest#0" expanded="false" />
           </folding>
         </state>
       </provider>

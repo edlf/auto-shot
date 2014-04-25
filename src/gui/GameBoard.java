@@ -26,11 +26,17 @@ public class GameBoard {
         board = new boolean[horizontalSize][verticalSize];
         clearBoard();
         initializeVectors();
+
+        /* Add original board to vector */
+        gameBoards.add(getBoardCopy());
     }
 
     GameBoard(boolean[][] in){
         board = in;
         initializeVectors();
+
+         /* Add original board to vector */
+        gameBoards.add(getBoardCopy());
     }
 
     /* Level constructor */
