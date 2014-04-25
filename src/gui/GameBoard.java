@@ -35,13 +35,15 @@ public class GameBoard {
         board = in;
         initializeVectors();
 
-         /* Add original board to vector */
+        /* Add original board to vector */
         gameBoards.add(getBoardCopy());
     }
 
     /* Level constructor */
     GameBoard(int boardId) throws Exception {
-        this();
+        board = new boolean[horizontalSize][verticalSize];
+        clearBoard();
+        initializeVectors();
 
         if (boardId < 1000 || boardId > 7500) {
             throw new Exception("Invalid boardId!");
@@ -69,6 +71,7 @@ public class GameBoard {
 
         /* Add original board to vector */
         gameBoards.add(getBoardCopy());
+        System.out.print("");
     }
 
     private void level1001() throws Exception {
