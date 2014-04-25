@@ -7,8 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1254e996-4334-48af-bd6d-9ad03f4f7b00" name="Default" comment="Create GameBoard Class">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/SolverDFS.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/SolverNode.java" />
+      <change type="DELETED" beforePath="D:\Documents\GitHub\auto-shot\src\gui\SolverNode.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Auto-Shot.iml" afterPath="$PROJECT_DIR$/Auto-Shot.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/DebugMain.java" afterPath="$PROJECT_DIR$/src/gui/DebugMain.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/SolverDFS.java" afterPath="$PROJECT_DIR$/src/gui/SolverDFS.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Auto-Shot.iws" />
@@ -72,21 +74,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SolverDFS.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SolverDFS.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/SolverDFS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.5117057" vertical-offset="0" max-vertical-offset="598">
+              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+              <folding>
+                <element signature="e#179#180#0" expanded="true" />
+                <element signature="e#211#212#0" expanded="true" />
+                <element signature="method#searchSolutionAux#0;class#SolverDFS#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SolverNode.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gui/SolverNode.java">
+      <file leaf-file-name="DebugMain.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/DebugMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23367697" vertical-offset="0" max-vertical-offset="582">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1416" max-vertical-offset="2023">
+              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -95,19 +101,21 @@
       <file leaf-file-name="GameBoard.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/GameBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4284">
-              <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4748" max-vertical-offset="5627">
+              <caret line="416" column="0" selection-start-line="416" selection-start-column="0" selection-end-line="416" selection-end-column="0" />
               <folding>
                 <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
                 <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
                 <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-                <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
+                <element signature="e#3532#3542#0" expanded="true" />
+                <element signature="e#5813#5823#0" expanded="true" />
                 <element signature="method#doMoveAuxUp#0;class#GameBoard#0" expanded="false" />
                 <element signature="method#doMoveAuxDown#0;class#GameBoard#0" expanded="false" />
                 <element signature="method#doMoveAuxLeft#0;class#GameBoard#0" expanded="false" />
                 <element signature="method#doMoveAuxRight#0;class#GameBoard#0" expanded="false" />
                 <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
-                <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
+                <element signature="e#12255#12256#0" expanded="true" />
+                <element signature="e#12306#12307#0" expanded="true" />
                 <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
               </folding>
             </state>
@@ -135,20 +143,22 @@
         <option value="$PROJECT_DIR$/src/gui/StartWindow.fxml" />
         <option value="$PROJECT_DIR$/src/gui/GameMoveTest.java" />
         <option value="$PROJECT_DIR$/src/gui/GameMove.java" />
-        <option value="$PROJECT_DIR$/src/gui/DebugMain.java" />
         <option value="$PROJECT_DIR$/src/gui/GameBoardTest.java" />
         <option value="$PROJECT_DIR$/src/gui/GameWindowController.java" />
         <option value="$PROJECT_DIR$/src/gui/GameWindow.fxml" />
         <option value="$PROJECT_DIR$/src/gui/Main.java" />
         <option value="$PROJECT_DIR$/src/gui/GameBoard.java" />
-        <option value="$PROJECT_DIR$/src/gui/SolverDFS.java" />
         <option value="$PROJECT_DIR$/src/gui/SolverNode.java" />
+        <option value="$PROJECT_DIR$/src/gui/DebugMain.java" />
+        <option value="$PROJECT_DIR$/src/gui/SolverDFS.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="960" />
-    <option name="height" value="1080" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -225,8 +235,8 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java/javafx-samples-2.2.51/src/Ensemble" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
@@ -254,7 +264,7 @@
       <recent name="D:\Documents\GitHub\iart\src\gui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Auto-Shot">
+  <component name="RunManager" selected="Application.Debug Menu">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -501,7 +511,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="960" height="1080" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -520,8 +530,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30666667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35654008" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14712153" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35062242" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32780084" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -552,15 +562,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/gui/GameBoard.java</url>
-          <line>376</line>
-          <properties />
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="33" />
+      <option name="time" value="37" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -584,13 +586,15 @@
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#3532#3542#0" expanded="true" />
+            <element signature="e#5813#5823#0" expanded="true" />
             <element signature="method#doMoveAuxUp#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxDown#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxRight#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#12255#12256#0" expanded="true" />
+            <element signature="e#12306#12307#0" expanded="true" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
           </folding>
         </state>
@@ -612,13 +616,15 @@
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#3532#3542#0" expanded="true" />
+            <element signature="e#5813#5823#0" expanded="true" />
             <element signature="method#doMoveAuxUp#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxDown#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxRight#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#12255#12256#0" expanded="true" />
+            <element signature="e#12306#12307#0" expanded="true" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
           </folding>
         </state>
@@ -676,13 +682,15 @@
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#3532#3542#0" expanded="true" />
+            <element signature="e#5813#5823#0" expanded="true" />
             <element signature="method#doMoveAuxUp#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxDown#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxRight#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#12255#12256#0" expanded="true" />
+            <element signature="e#12306#12307#0" expanded="true" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
           </folding>
         </state>
@@ -740,13 +748,15 @@
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#3532#3542#0" expanded="true" />
+            <element signature="e#5813#5823#0" expanded="true" />
             <element signature="method#doMoveAuxUp#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxDown#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxRight#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#12255#12256#0" expanded="true" />
+            <element signature="e#12306#12307#0" expanded="true" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
           </folding>
         </state>
@@ -804,13 +814,15 @@
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#3532#3542#0" expanded="true" />
+            <element signature="e#5813#5823#0" expanded="true" />
             <element signature="method#doMoveAuxUp#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxDown#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxRight#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#12255#12256#0" expanded="true" />
+            <element signature="e#12306#12307#0" expanded="true" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
           </folding>
         </state>
@@ -853,13 +865,15 @@
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#3532#3542#0" expanded="true" />
+            <element signature="e#5813#5823#0" expanded="true" />
             <element signature="method#doMoveAuxUp#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxDown#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxRight#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#12255#12256#0" expanded="true" />
+            <element signature="e#12306#12307#0" expanded="true" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
           </folding>
         </state>
@@ -903,13 +917,15 @@
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#3532#3542#0" expanded="true" />
+            <element signature="e#5813#5823#0" expanded="true" />
             <element signature="method#doMoveAuxUp#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxDown#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxRight#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#12255#12256#0" expanded="true" />
+            <element signature="e#12306#12307#0" expanded="true" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
           </folding>
         </state>
@@ -964,14 +980,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/DebugMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36431623" vertical-offset="1002" max-vertical-offset="1955">
-          <caret line="80" column="83" selection-start-line="80" selection-start-column="83" selection-end-line="80" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="2142">
@@ -1012,39 +1020,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/SolverDFS.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/DebugMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1416" max-vertical-offset="2023">
+          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GameBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4284">
-          <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="4748" max-vertical-offset="5627">
+          <caret line="416" column="0" selection-start-line="416" selection-start-column="0" selection-end-line="416" selection-end-column="0" />
           <folding>
             <element signature="method#level1001#0;class#GameBoard#0" expanded="false" />
             <element signature="method#level7500#0;class#GameBoard#0" expanded="false" />
             <element signature="method#initializeVectors#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getAvailableMovesOnPosition#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#3532#3542#0" expanded="true" />
+            <element signature="e#5813#5823#0" expanded="true" />
             <element signature="method#doMoveAuxUp#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxDown#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxLeft#0;class#GameBoard#0" expanded="false" />
             <element signature="method#doMoveAuxRight#0;class#GameBoard#0" expanded="false" />
             <element signature="method#getBoardPiece#0;class#GameBoard#0" expanded="false" />
-            <element signature="method#getNumberOfPiecesLeft#0;class#GameBoard#0" expanded="false" />
+            <element signature="e#12255#12256#0" expanded="true" />
+            <element signature="e#12306#12307#0" expanded="true" />
             <element signature="method#printBoardConsole#0;class#GameBoard#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/SolverNode.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/SolverDFS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23367697" vertical-offset="0" max-vertical-offset="582">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.5117057" vertical-offset="0" max-vertical-offset="598">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+          <folding>
+            <element signature="e#179#180#0" expanded="true" />
+            <element signature="e#211#212#0" expanded="true" />
+            <element signature="method#searchSolutionAux#0;class#SolverDFS#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1107,7 +1121,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
