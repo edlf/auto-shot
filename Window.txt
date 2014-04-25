@@ -1,0 +1,3 @@
+Game info
+Vertical:   7
+Horizontal: 7

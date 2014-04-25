@@ -1,0 +1,133 @@
+package gui;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ * Eduardo Fernandes
+ */
+public class Main extends Application {
+    /* Constants */
+    private static final int windowSizeWidth = 300;
+    private static final int windowSizeHeight = 400;
+
+    private static final String mainWindowXml = "StartWindow.fxml";
+    private static final String mainWindowTitle = "Auto-Shot";
+    private static final String gameWindowXml = "GameWindow.fxml";
+
+    public static Image sphereImage;
+    public static Image selectedSphereImage;
+
+    /* JavaFX */
+    private Stage stage;
+
+    /**
+     * @param args Command line arguments
+     */
+    public static void main(String[] args) {
+        logInfo("Application has started");
+        Application.launch(Main.class, args);
+    }
+
+    public static void exit() {
+        logInfo("Application is exiting");
+        System.exit(0);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        loadResources();
+
+        try {
+            stage = primaryStage;
+            stage.setTitle(mainWindowTitle);
+            stage.setResizable(false);
+            gotoStartWindow();
+            primaryStage.show();
+        } catch (Exception ex) {
+            logSevereAndExit(ex);
+        }
+    }
+
+    private void loadResources(){
+        logInfo("Loading resources...");
+        try {
+            logInfo("Loading wsphere.png...");
+            sphereImage = new Image("gui\\resources\\wsphere.png");
+            logInfo("Loading csphere.png...");
+            selectedSphereImage = new Image("\\gui\\resources\\csphere.png");
+        } catch (IllegalArgumentException e) {
+            logSevereAndExit("Problems while loading resources, exiting.");
+        }
+
+    }
+
+    private void gotoStartWindow() {
+        try {
+            StartWindowController startWindowController = (StartWindowController) replaceSceneContent(mainWindowXml);
+            startWindowController.setApp(this);
+        } catch (Exception ex) {
+            logSevereAndExit(ex);
+        }
+    }
+
+    public void startGame() {
+        logInfo("Loading game scene");
+        gotoGameWindow();
+    }
+
+    private void gotoGameWindow() {
+        try {
+            GameWindowController gameWindowController = (GameWindowController) replaceSceneContent(gameWindowXml);
+            gameWindowController.setApp(this);
+        } catch (Exception ex) {
+            logSevereAndExit(ex);
+        }
+    }
+
+    /**
+     * @param fxml XML scene file to load
+     */
+    private Initializable replaceSceneContent(String fxml) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        InputStream in = Main.class.getResourceAsStream(fxml);
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(Main.class.getResource(fxml));
+        GridPane page;
+        try {
+            page = loader.load(in);
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page);
+        stage.setScene(scene);
+        stage.sizeToScene();
+        return (Initializable) loader.getController();
+    }
+
+
+    public static void logInfo(String in) {
+        Logger.getLogger(Main.class.getName()).log(Level.INFO, in, (Object) null);
+    }
+
+    public static void logSevereAndExit(String in) {
+        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, in, (Object) null);
+        System.exit(-1);
+    }
+
+    public static void logSevereAndExit(Exception ex) {
+        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        System.exit(-1);
+    }
+
+}

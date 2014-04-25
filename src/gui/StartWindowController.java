@@ -1,0 +1,50 @@
+package gui;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
+import javafx.scene.layout.GridPane;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+/**
+ * Eduardo Fernandes
+ * <p/>
+ * Main Window controller
+ */
+public class StartWindowController extends GridPane implements Initializable {
+    private Main application;
+
+    @FXML
+    Button buttonPlay;
+    @FXML
+    MenuButton algorithmCombo;
+    @FXML
+    Button buttonAutoPlay;
+    @FXML
+    Button buttonCancel;
+
+    public void setApp(Main application) {
+        this.application = application;
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+    public void handlePlayButtonAction(ActionEvent event) {
+        if (application != null) {
+            application.startGame();
+        }
+    }
+
+    public void handleExitButtonAction(ActionEvent event) {
+        if (application != null) {
+            application.exit();
+        }
+    }
+}
