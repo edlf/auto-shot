@@ -94,7 +94,9 @@ public class DebugMain {
                         break;
 
                     case 10:
-                        SolverDFS tempSolver = new SolverDFS();
+                        SolverDFS tempSolver = new SolverDFS(temp);
+                        tempSolver.searchSolution();
+                        tempSolver.printSolutionStack();
                         break;
 
                     case 99:

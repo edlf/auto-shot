@@ -7,61 +7,84 @@ import java.util.Stack;
  * Eduardo Fernandes
  */
 public class SolverDFS {
-    Stack<GameMove> moveStack;
+    private Stack<GameMove> moveStack;
+    private int numberOfMovesTried;
+    private int numberOfBackTracks;
+    private boolean hasRun;
+    private boolean solutionFound;
 
-    SolverDFS() throws Exception{
-        searchSolution();
+    GameBoard gameBoard;
+
+    SolverDFS(GameBoard input) throws Exception{
+        gameBoard = input;
+        hasRun = false;
+        solutionFound = false;
+        numberOfMovesTried = 0;
+        numberOfBackTracks = 0;
     }
 
-    void searchSolution() throws Exception{
-        GameBoard start = new GameBoard(7500);
-        moveStack = new Stack<GameMove>();
-        searchSolutionAux(start, 0);
+    public void searchSolution() throws Exception{
+        moveStack = new Stack<>();
+        searchSolutionAux(0);
+        hasRun = true;
     }
 
-    void searchSolutionAux(GameBoard start, int level) throws Exception{
-        if (start.getNumberOfAvailableMoves() > 0){
-            System.out.println("Current level: " + Integer.toString(level));
+    private void searchSolutionAux(int level) throws Exception{
+        solutionFound = gameBoard.isBoardSolved();
 
-            for (int i=0; i < start.getNumberOfAvailableMoves(); i++) {
-                System.out.println("Trying solution: " + Integer.toString(i));
+        if (gameBoard.getNumberOfAvailableMoves() > 0){
 
-                moveStack.push(start.getAvailableMoves().get(i));
-
-                start.doMove(start.getAvailableMoves().get(i), false);
-
-                if(start.isBoardSolved()){
-                    System.out.println("Solution found");
-
-                    for (int j=0; j < moveStack.size(); j++) {
-                        System.out.println(moveStack.get(j));
-                    }
-
-                    break;
-                } else {
-                    searchSolutionAux(start, level+1);
-                }
-
+            for (int i = 0; i < gameBoard.getNumberOfAvailableMoves(); i++) {
+                attemptMove(gameBoard.getAvailableMoves().get(i));
+                searchSolutionAux(level+1);
             }
 
-            moveStack.pop();
-            start.undoMove();
+            /* No more moves to test on this node */
+            backtrack();
 
         } else {
-
-            if(start.isBoardSolved()){
-                System.out.println("Solution found");
-                for (int i=0; i < moveStack.size(); i++) {
-                    System.out.println(moveStack.get(i));
-                }
-
-            } else {
-                /* Backtrack */
-                start.undoMove();
-                moveStack.pop();
-                return;
+            if (!solutionFound) {
+                /* No more moves on this node */
+                backtrack();
             }
+        }
+
+    }
+
+    private void backtrack(){
+        gameBoard.undoMove();
+        moveStack.pop();
+    }
+
+    private void attemptMove(GameMove in) throws Exception {
+        moveStack.push(in);
+        gameBoard.doMove(in, false);
+        numberOfMovesTried++;
+    }
+
+    public Stack<GameMove> getSolution(){
+        if (hasRun && solutionFound) {
+            return moveStack;
+        } else {
+            return null;
         }
     }
 
+    public void printSolutionStack(){
+        if (hasRun && solutionFound) {
+            System.out.println("Number of backtracks: " + Integer.toString(numberOfBackTracks));
+            System.out.println("Number of moves tried: " + Integer.toString(numberOfMovesTried));
+            for (int i=0; i < moveStack.size(); i++) {
+                System.out.println(moveStack.get(i));
+            }
+        }
+
+        if (hasRun && !solutionFound) {
+            System.out.println("No solution has found");
+        }
+
+        if (!hasRun && !solutionFound) {
+            System.out.println("You must run the algorithm first");
+        }
+    }
 }
