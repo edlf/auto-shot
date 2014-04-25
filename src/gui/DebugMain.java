@@ -23,15 +23,15 @@ public class DebugMain {
             Scanner sc = new Scanner(System.in);
             while (!exit) {
                 System.out.println("DEBUG MENU:");
-                System.out.println("0) Choose level");
-                System.out.println("1) Print board");
-                System.out.println("2) Print Available Moves");
-                System.out.println("3) Check if board has been solved");
-                System.out.println("4) Check if the game has been lost");
-                System.out.println("5) Do move");
-                System.out.println("6) Undo");
-                System.out.println("7) Redo");
-                //System.out.println(") ");
+                System.out.println(" 0) Choose level");
+                System.out.println(" 1) Print board");
+                System.out.println(" 2) Print Available Moves");
+                System.out.println(" 3) Check if board has been solved");
+                System.out.println(" 4) Check if the game has been lost");
+                System.out.println(" 5) Do move");
+                System.out.println(" 6) Undo");
+                System.out.println(" 7) Redo");
+                System.out.println("10) Attempt DFS");
                 System.out.println("99) Exit");
 
                 int option = sc.nextInt();
@@ -91,6 +91,10 @@ public class DebugMain {
 
                     case 7:
                         temp.redoMove();
+                        break;
+
+                    case 10:
+                        SolverDFS tempSolver = new SolverDFS();
                         break;
 
                     case 99:
