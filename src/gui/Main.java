@@ -59,7 +59,7 @@ public class Main extends Application {
         }
     }
 
-    private void loadResources(){
+    private void loadResources() {
         logInfo("Loading resources...");
         try {
             logInfo("Loading wsphere.png...");

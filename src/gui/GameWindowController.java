@@ -3,10 +3,9 @@ package gui;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.SwipeEvent;
+import javafx.scene.input.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
@@ -28,6 +27,16 @@ public class GameWindowController extends GridPane implements Initializable {
     @FXML
     GridPane gameGrid;
 
+    @FXML
+    Label lblNumberOfMovesDone;
+    @FXML
+    Label lblNumberOfAvailableMoves;
+    @FXML
+    Label lblIsSolved;
+    @FXML
+    Label lblIsLost;
+
+    EventHandler<KeyEvent> keyboardEventHandler;
     EventHandler<MouseEvent> mouseEventHandler;
     EventHandler<SwipeEvent> swipeEventHandler;
 
@@ -40,7 +49,7 @@ public class GameWindowController extends GridPane implements Initializable {
         try {
             gameBoard = new GameBoard(7500);
             setupBoard();
-            displayBoard();
+            updateGUI();
             createEventHandlers();
             gameGrid.setOnMouseClicked(mouseEventHandler);
         } catch (Exception e) {
@@ -48,14 +57,14 @@ public class GameWindowController extends GridPane implements Initializable {
         }
     }
 
-    private void createEventHandlers(){
+    private void createEventHandlers() {
         mouseEventHandler = new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 for (int x = 0; x < GameBoard.horizontalSize; x++) {
                     for (int y = 0; y < GameBoard.verticalSize; y++) {
-                        if (event.getTarget() == spheres[x][y] && event.getButton() == MouseButton.PRIMARY){
-                            selectPiece(x,y);
+                        if (event.getTarget() == spheres[x][y] && event.getButton() == MouseButton.PRIMARY) {
+                            selectPiece(x, y);
                             return;
                         }
                     }
@@ -64,29 +73,58 @@ public class GameWindowController extends GridPane implements Initializable {
             }
         };
 
+        keyboardEventHandler = new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (isSelected()) {
+                    if (event.getEventType() == KeyEvent.KEY_TYPED) {
+                        if (event.getCode() == KeyCode.UP) {
+                            doMove(selectedX, selectedY, GameMove.MoveUp);
+                            return;
+                        }
+
+                        if (event.getCode() == KeyCode.DOWN) {
+                            doMove(selectedX, selectedY, GameMove.MoveDown);
+                            return;
+                        }
+                        if (event.getCode() == KeyCode.LEFT) {
+                            doMove(selectedX, selectedY, GameMove.MoveLeft);
+                            return;
+                        }
+                        if (event.getCode() == KeyCode.RIGHT) {
+                            doMove(selectedX, selectedY, GameMove.MoveRight);
+                            return;
+                        }
+                    }
+                }
+            }
+        };
+
         swipeEventHandler = new EventHandler<SwipeEvent>() {
             @Override
             public void handle(SwipeEvent event) {
                 for (int x = 0; x < GameBoard.horizontalSize; x++) {
                     for (int y = 0; y < GameBoard.verticalSize; y++) {
-                        if (event.getTarget() == spheres[x][y] && event.getEventType() == SwipeEvent.SWIPE_UP){
-                            doMove(x, y, GameMove.MoveUp);
-                            return;
-                        }
+                        if (event.getTarget() == spheres[x][y]) {
+                            if (event.getEventType() == SwipeEvent.SWIPE_UP) {
+                                doMove(x, y, GameMove.MoveUp);
+                                return;
+                            }
 
-                        if (event.getTarget() == spheres[x][y] && event.getEventType() == SwipeEvent.SWIPE_DOWN){
-                            doMove(x, y, GameMove.MoveDown);
-                            return;
-                        }
+                            if (event.getEventType() == SwipeEvent.SWIPE_DOWN) {
+                                doMove(x, y, GameMove.MoveDown);
+                                return;
+                            }
 
-                        if (event.getTarget() == spheres[x][y] && event.getEventType() == SwipeEvent.SWIPE_LEFT){
-                            doMove(x, y, GameMove.MoveLeft);
-                            return;
-                        }
+                            if (event.getEventType() == SwipeEvent.SWIPE_LEFT) {
+                                doMove(x, y, GameMove.MoveLeft);
+                                return;
+                            }
 
-                        if (event.getTarget() == spheres[x][y] && event.getEventType() == SwipeEvent.SWIPE_RIGHT){
-                            doMove(x, y, GameMove.MoveRight);
-                            return;
+                            if (event.getEventType() == SwipeEvent.SWIPE_RIGHT) {
+                                doMove(x, y, GameMove.MoveRight);
+                                return;
+                            }
                         }
                     }
                 }
@@ -106,7 +144,12 @@ public class GameWindowController extends GridPane implements Initializable {
         }
     }
 
-    private void displayBoard() {
+    private void updateGUI() {
+        updateBoard();
+        updateStats();
+    }
+
+    private void updateBoard(){
         try {
             for (int x = 0; x < GameBoard.horizontalSize; x++) {
                 for (int y = 0; y < GameBoard.verticalSize; y++) {
@@ -127,26 +170,52 @@ public class GameWindowController extends GridPane implements Initializable {
         }
     }
 
-    private void clearSelection(){
+    private void updateStats(){
+        lblNumberOfMovesDone.setText("Number of moves: " + Integer.toString(gameBoard.getNumberOfMovesMade()));
+
+        lblNumberOfAvailableMoves.setText("Number of available moves: " + Integer.toString(gameBoard.getNumberOfAvailableMoves()));
+
+        if (gameBoard.isBoardSolved()) {
+            lblIsSolved.setText("Is the board solved? Yes");
+        } else {
+            lblIsSolved.setText("Is the board solved? No");
+        }
+
+        if (gameBoard.isBoardLost()) {
+            lblIsLost.setText("Is the game lost? Yes");
+        } else {
+            lblIsLost.setText("Is the game lost? No");
+        }
+    }
+
+    private void clearSelection() {
         selectedX = -1;
         selectedY = -1;
-        displayBoard();
+        updateGUI();
     }
 
     private void selectPiece(int x, int y) {
         selectedX = x;
         selectedY = y;
-        displayBoard();
+        updateGUI();
+    }
+
+    private boolean isSelected() {
+        if (selectedX == -1 && selectedY == -1) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     private void doMove(int x, int y, char direction) {
-        if (x == -1 && y == -1) {
+        if (!isSelected()) {
             System.out.println("No piece selected");
             return;
         }
 
         try {
-            GameMove move = new GameMove(x , y, direction);
+            GameMove move = new GameMove(x, y, direction);
             gameBoard.doMove(move, false);
             clearSelection();
         } catch (Exception e) {
@@ -154,19 +223,19 @@ public class GameWindowController extends GridPane implements Initializable {
         }
     }
 
-    public void handleUpButtonAction(){
+    public void handleUpButtonAction() {
         doMove(selectedX, selectedY, GameMove.MoveUp);
     }
 
-    public void handleDownButtonAction(){
+    public void handleDownButtonAction() {
         doMove(selectedX, selectedY, GameMove.MoveDown);
     }
 
-    public void handleLeftButtonAction(){
+    public void handleLeftButtonAction() {
         doMove(selectedX, selectedY, GameMove.MoveLeft);
     }
 
-    public void handleRightButtonAction(){
+    public void handleRightButtonAction() {
         doMove(selectedX, selectedY, GameMove.MoveRight);
     }
 

@@ -31,7 +31,7 @@ public class GameBoard {
         gameBoards.add(getBoardCopy());
     }
 
-    GameBoard(boolean[][] in){
+    GameBoard(boolean[][] in) {
         board = in;
         initializeVectors();
 
@@ -50,7 +50,7 @@ public class GameBoard {
         int level = boardId % 1000;
         int pack = boardId / 1000;
 
-        switch (pack){
+        switch (pack) {
             case 1:
                 if (level == 1) {
                     level1001();
@@ -98,7 +98,7 @@ public class GameBoard {
         }
     }
 
-    private void initializeVectors(){
+    private void initializeVectors() {
         currentMoveIndex = 0;
         gameBoards = new Vector<boolean[][]>();
         gameMoves = new Vector<GameMove>();
@@ -112,7 +112,7 @@ public class GameBoard {
         }
     }
 
-    private boolean[][] getBoardCopy(){
+    private boolean[][] getBoardCopy() {
         boolean[][] boardCopy = new boolean[horizontalSize][verticalSize];
         for (int x = 0; x < horizontalSize; x++) {
             for (int y = 0; y < verticalSize; y++) {
@@ -189,20 +189,24 @@ public class GameBoard {
         return moves;
     }
 
-    public ArrayList<GameMove> getAvailableMoves() throws Exception {
+    public ArrayList<GameMove> getAvailableMoves() {
         ArrayList<GameMove> moves = new ArrayList<GameMove>(0);
 
         /* Get all possible gameMoves from the board */
         for (int y = 0; y < verticalSize; y++) {
             for (int x = 0; x < horizontalSize; x++) {
-                moves.addAll(getAvailableMovesOnPosition(x, y));
+                try {
+                    moves.addAll(getAvailableMovesOnPosition(x, y));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
 
         return moves;
     }
 
-    public void doMove(GameMove move, boolean redo) throws Exception{
+    public void doMove(GameMove move, boolean redo) throws Exception {
         int x = move.getPieceX();
         int y = move.getPieceY();
 
@@ -210,8 +214,8 @@ public class GameBoard {
 
         ArrayList<GameMove> movesAvailable = getAvailableMovesOnPosition(x, y);
 
-        for (int i = 0; i < movesAvailable.size(); i++){
-            if(move.equals(movesAvailable.get(i))) {
+        for (int i = 0; i < movesAvailable.size(); i++) {
+            if (move.equals(movesAvailable.get(i))) {
                 /* Move is valid */
                 canContinue = true;
                 break;
@@ -219,7 +223,7 @@ public class GameBoard {
         }
 
         if (!canContinue) {
-            Main.logSevereAndExit("Invalid Move on doMove()");
+            throw new Exception("Invalid Move, doing nothing.");
         }
 
         if (!redo) {
@@ -233,7 +237,7 @@ public class GameBoard {
 
         /* Clear 'future' gameBoards if there are any */
         if ((currentMoveIndex + 1) < gameBoards.size()) {
-            for (int i = gameBoards.size(); i > currentMoveIndex+1; i--) {
+            for (int i = gameBoards.size(); i > currentMoveIndex + 1; i--) {
                 gameBoards.remove(i - 1);
             }
         }
@@ -246,19 +250,19 @@ public class GameBoard {
 
         switch (move.getDirection()) {
             case GameMove.MoveUp:
-                doMoveAuxUp(x,y);
+                doMoveAuxUp(x, y);
                 break;
 
             case GameMove.MoveDown:
-                doMoveAuxDown(x,y);
+                doMoveAuxDown(x, y);
                 break;
 
             case GameMove.MoveLeft:
-                doMoveAuxLeft(x,y);
+                doMoveAuxLeft(x, y);
                 break;
 
             case GameMove.MoveRight:
-                doMoveAuxRight(x,y);
+                doMoveAuxRight(x, y);
                 break;
 
             default:
@@ -269,34 +273,34 @@ public class GameBoard {
         gameBoards.add(getBoardCopy());
     }
 
-    private void doMoveAuxUp(int x, int y){
+    private void doMoveAuxUp(int x, int y) {
         /* Check if we are propagating a collision */
-        if (y > 0 && board[x][y-1]) {
-            doMoveAuxUp(x,y-1);
+        if (y > 0 && board[x][y - 1]) {
+            doMoveAuxUp(x, y - 1);
             return;
         }
 
         /* Move piece */
-        for (int i = y; i>=0; i--) {
+        for (int i = y; i >= 0; i--) {
             /* Piece has left the board */
             if (i == 0) {
                 board[x][y] = false;
                 return;
             }
 
-            if (board[x][i-1]) {
+            if (board[x][i - 1]) {
                 board[x][i] = true;
                 board[x][y] = false;
-                doMoveAuxUp(x, i-1);
+                doMoveAuxUp(x, i - 1);
                 return;
             }
         }
     }
 
-    private void doMoveAuxDown(int x, int y){
+    private void doMoveAuxDown(int x, int y) {
         /* Check if we are propagating a collision */
-        if (y < (verticalSize - arrayOffset - 1) && board[x][y+1]) {
-            doMoveAuxDown(x,y+1);
+        if (y < (verticalSize - arrayOffset - 1) && board[x][y + 1]) {
+            doMoveAuxDown(x, y + 1);
             return;
         }
 
@@ -308,19 +312,19 @@ public class GameBoard {
                 return;
             }
 
-            if (board[x][i+1]) {
+            if (board[x][i + 1]) {
                 board[x][i] = true;
                 board[x][y] = false;
-                doMoveAuxDown(x, i+1);
+                doMoveAuxDown(x, i + 1);
                 return;
             }
         }
     }
 
-    private void doMoveAuxLeft(int x, int y){
+    private void doMoveAuxLeft(int x, int y) {
         /* Check if we are propagating a collision */
-        if (x > 0 && board[x-1][y]) {
-            doMoveAuxLeft(x-1,y);
+        if (x > 0 && board[x - 1][y]) {
+            doMoveAuxLeft(x - 1, y);
             return;
         }
 
@@ -332,19 +336,19 @@ public class GameBoard {
                 return;
             }
 
-            if (board[i-1][y]) {
+            if (board[i - 1][y]) {
                 board[i][y] = true;
                 board[x][y] = false;
-                doMoveAuxLeft(i-1, y);
+                doMoveAuxLeft(i - 1, y);
                 return;
             }
         }
     }
 
-    private void doMoveAuxRight(int x, int y){
+    private void doMoveAuxRight(int x, int y) {
         /* Check if we are propagating a collision */
-        if (x < (horizontalSize - arrayOffset - 1) && board[x+1][y]) {
-            doMoveAuxRight(x+1,y);
+        if (x < (horizontalSize - arrayOffset - 1) && board[x + 1][y]) {
+            doMoveAuxRight(x + 1, y);
             return;
         }
 
@@ -357,23 +361,23 @@ public class GameBoard {
             }
 
             /* We have a collision */
-            if (board[i+1][y]) {
+            if (board[i + 1][y]) {
                 board[i][y] = true;
                 board[x][y] = false;
-                doMoveAuxRight(i+1, y);
+                doMoveAuxRight(i + 1, y);
                 return;
             }
         }
     }
 
-    public void undoMove(){
+    public void undoMove() {
         if (currentMoveIndex > 0 && gameMoves.size() > 0) {
             restoreBoard(gameBoards.get(currentMoveIndex - 1));
             currentMoveIndex--;
         }
     }
 
-    public void redoMove(){
+    public void redoMove() {
         /* Save GameBoards + Moves done (GameBoards +1 offset) */
         if (currentMoveIndex < gameMoves.size()) {
             try {
@@ -392,7 +396,7 @@ public class GameBoard {
         }
     }
 
-    public boolean[][] getGameBoard(){
+    public boolean[][] getGameBoard() {
         return board;
     }
 
@@ -422,8 +426,13 @@ public class GameBoard {
         return getNumberOfPiecesLeft() == 1;
     }
 
-    public boolean isBoardLost() throws Exception {
-        ArrayList<GameMove> temp = getAvailableMoves();
+    public boolean isBoardLost() {
+        ArrayList<GameMove> temp = null;
+        try {
+            temp = getAvailableMoves();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         if (temp.size() > 0) {
             return false;
@@ -443,5 +452,13 @@ public class GameBoard {
             }
             System.out.println();
         }
+    }
+
+    public int getNumberOfMovesMade(){
+        return currentMoveIndex;
+    }
+
+    public int getNumberOfAvailableMoves(){
+        return getAvailableMoves().size();
     }
 }

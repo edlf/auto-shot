@@ -2,8 +2,6 @@ package gui;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class GameBoardTest {
 
     @Test
@@ -14,15 +12,15 @@ public class GameBoardTest {
 
         GameBoard test = new GameBoard(testBoard);
 
-        if(test.getAvailableMoves().size() != 2) {
+        if (test.getAvailableMoves().size() != 2) {
             throw new Exception("Too many or too few moves!");
         }
 
-        GameMove testMove = new GameMove(1,3,'r');
+        GameMove testMove = new GameMove(1, 3, 'r');
 
         test.doMove(testMove, false);
 
-        if(test.getAvailableMoves().size() !=0) {
+        if (test.getAvailableMoves().size() != 0) {
             throw new Exception("There should not be any moves left!");
         }
 
@@ -39,33 +37,33 @@ public class GameBoardTest {
         for (int x = 0; x < GameBoard.horizontalSize; x++) {
             for (int y = 0; y < GameBoard.verticalSize; y++) {
                 if (x == 1 && y == 3) {
-                    if(!test.getBoardPiece(x ,y)){
+                    if (!test.getBoardPiece(x, y)) {
                         throw new Exception("At least a piece is missing from the game board!");
                     }
                 } else if (x == 4 && y == 3) {
-                    if(!test.getBoardPiece(x ,y)){
+                    if (!test.getBoardPiece(x, y)) {
                         throw new Exception("At least a piece is missing from the game board!");
                     }
                 } else {
-                    if(test.getBoardPiece(x ,y)){
+                    if (test.getBoardPiece(x, y)) {
                         throw new Exception("Too many pieces on the game board!");
                     }
                 }
             }
         }
 
-        GameMove testMove = new GameMove(1,3,'r');
+        GameMove testMove = new GameMove(1, 3, 'r');
 
         test.doMove(testMove, false);
 
         for (int x = 0; x < GameBoard.horizontalSize; x++) {
             for (int y = 0; y < GameBoard.verticalSize; y++) {
                 if (x == 3 && y == 3) {
-                    if(!test.getBoardPiece(x ,y)){
+                    if (!test.getBoardPiece(x, y)) {
                         throw new Exception("One piece is missing from the game board!");
                     }
                 } else {
-                    if(test.getBoardPiece(x ,y)){
+                    if (test.getBoardPiece(x, y)) {
                         throw new Exception("Too many pieces on the game board!");
                     }
                 }
@@ -81,7 +79,7 @@ public class GameBoardTest {
 
         GameBoard test = new GameBoard(testBoard);
 
-        GameMove testMove = new GameMove(1,3,'r');
+        GameMove testMove = new GameMove(1, 3, 'r');
 
         test.doMove(testMove, false);
 
@@ -90,15 +88,15 @@ public class GameBoardTest {
         for (int x = 0; x < GameBoard.horizontalSize; x++) {
             for (int y = 0; y < GameBoard.verticalSize; y++) {
                 if (x == 1 && y == 3) {
-                    if(!test.getBoardPiece(x ,y)){
+                    if (!test.getBoardPiece(x, y)) {
                         throw new Exception("At least a piece is missing from the game board!");
                     }
                 } else if (x == 4 && y == 3) {
-                    if(!test.getBoardPiece(x ,y)){
+                    if (!test.getBoardPiece(x, y)) {
                         throw new Exception("At least a piece is missing from the game board!");
                     }
                 } else {
-                    if(test.getBoardPiece(x ,y)){
+                    if (test.getBoardPiece(x, y)) {
                         throw new Exception("Too many pieces on the game board!");
                     }
                 }
@@ -114,7 +112,7 @@ public class GameBoardTest {
 
         GameBoard test = new GameBoard(testBoard);
 
-        GameMove testMove = new GameMove(1,3,'r');
+        GameMove testMove = new GameMove(1, 3, 'r');
 
         test.doMove(testMove, false);
 
@@ -124,11 +122,11 @@ public class GameBoardTest {
         for (int x = 0; x < GameBoard.horizontalSize; x++) {
             for (int y = 0; y < GameBoard.verticalSize; y++) {
                 if (x == 3 && y == 3) {
-                    if(!test.getBoardPiece(x ,y)){
+                    if (!test.getBoardPiece(x, y)) {
                         throw new Exception("One piece is missing from the game board!");
                     }
                 } else {
-                    if(test.getBoardPiece(x ,y)){
+                    if (test.getBoardPiece(x, y)) {
                         throw new Exception("Too many pieces on the game board!");
                     }
                 }
@@ -147,15 +145,15 @@ public class GameBoardTest {
         for (int x = 0; x < GameBoard.horizontalSize; x++) {
             for (int y = 0; y < GameBoard.verticalSize; y++) {
                 if (x == 1 && y == 3) {
-                    if(!test.getBoardPiece(x ,y)){
+                    if (!test.getBoardPiece(x, y)) {
                         throw new Exception("At least a piece is missing from the game board!");
                     }
                 } else if (x == 4 && y == 3) {
-                    if(!test.getBoardPiece(x ,y)){
+                    if (!test.getBoardPiece(x, y)) {
                         throw new Exception("At least a piece is missing from the game board!");
                     }
                 } else {
-                    if(test.getBoardPiece(x ,y)){
+                    if (test.getBoardPiece(x, y)) {
                         throw new Exception("Too many pieces on the game board!");
                     }
                 }
@@ -171,15 +169,15 @@ public class GameBoardTest {
 
         GameBoard test = new GameBoard(testBoard);
 
-        if(test.getNumberOfPiecesLeft() != 2) {
+        if (test.getNumberOfPiecesLeft() != 2) {
             throw new Exception("Wrong number of pieces on board");
         }
 
-        GameMove testMove = new GameMove(1,3,'r');
+        GameMove testMove = new GameMove(1, 3, 'r');
 
         test.doMove(testMove, false);
 
-        if(test.getNumberOfPiecesLeft() != 1) {
+        if (test.getNumberOfPiecesLeft() != 1) {
             throw new Exception("One piece should have been removed from the board");
         }
     }
@@ -196,7 +194,7 @@ public class GameBoardTest {
             throw new Exception("The Game is not solved!");
         }
 
-        GameMove testMove = new GameMove(1,3,'r');
+        GameMove testMove = new GameMove(1, 3, 'r');
 
         test.doMove(testMove, false);
 
@@ -230,7 +228,7 @@ public class GameBoardTest {
             throw new Exception("The Game is still playable!");
         }
 
-        GameMove testMove = new GameMove(1,3,'r');
+        GameMove testMove = new GameMove(1, 3, 'r');
 
         test.doMove(testMove, false);
 
@@ -240,7 +238,7 @@ public class GameBoardTest {
     }
 
     @Test
-    public void testBoardLostOnLoss() throws Exception{
+    public void testBoardLostOnLoss() throws Exception {
         boolean testBoard[][] = new boolean[GameBoard.horizontalSize][GameBoard.verticalSize];
         testBoard[1][2] = true;
         testBoard[4][3] = true;
