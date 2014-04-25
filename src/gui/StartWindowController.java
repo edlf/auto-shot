@@ -42,6 +42,12 @@ public class StartWindowController extends GridPane implements Initializable {
         }
     }
 
+    public void handleAutoPlayButtonAction(ActionEvent event) {
+        if (application != null) {
+            application.startGameAuto();
+        }
+    }
+
     public void handleExitButtonAction(ActionEvent event) {
         if (application != null) {
             application.exit();

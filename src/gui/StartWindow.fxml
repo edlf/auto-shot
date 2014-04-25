@@ -24,7 +24,7 @@
                     </items>
                 </MenuButton>
                 <Button fx:id="buttonAutoPlay" layoutX="77.0" layoutY="326.0" mnemonicParsing="false"
-                        text="Have the computer play"/>
+                        onAction="#handleAutoPlayButtonAction" text="Have the computer play"/>
                 <Button fx:id="buttonCancel" cancelButton="true" layoutX="131.0" layoutY="365.0" mnemonicParsing="false"
                         onAction="#handleExitButtonAction" text="Exit"/>
             </children>

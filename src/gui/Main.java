@@ -18,12 +18,11 @@ import java.util.logging.Logger;
  */
 public class Main extends Application {
     /* Constants */
-    private static final int windowSizeWidth = 300;
-    private static final int windowSizeHeight = 400;
+    private static final String mainWindowTitle = "Auto-Shot";
 
     private static final String mainWindowXml = "StartWindow.fxml";
-    private static final String mainWindowTitle = "Auto-Shot";
     private static final String gameWindowXml = "GameWindow.fxml";
+    private static final String gameWindowAutoXml = "GameWindowAuto.fxml";
 
     public static Image sphereImage;
     public static Image selectedSphereImage;
@@ -90,6 +89,20 @@ public class Main extends Application {
         try {
             GameWindowController gameWindowController = (GameWindowController) replaceSceneContent(gameWindowXml);
             gameWindowController.setApp(this);
+        } catch (Exception ex) {
+            logSevereAndExit(ex);
+        }
+    }
+
+    public void startGameAuto(){
+        logInfo("Loading automatic game solver scene");
+        gotoGameWindowAuto();
+    }
+
+    private void gotoGameWindowAuto() {
+        try {
+            GameWindowAutoController gameWindowAutoController = (GameWindowAutoController) replaceSceneContent(gameWindowAutoXml);
+            gameWindowAutoController.setApp(this);
         } catch (Exception ex) {
             logSevereAndExit(ex);
         }
