@@ -4,6 +4,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 import javafx.scene.layout.GridPane;
@@ -11,6 +12,7 @@ import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Stack;
 
 /**
  * Eduardo Fernandes
@@ -35,6 +37,9 @@ public class GameWindowAutoController extends GridPane implements Initializable 
     Label lblIsSolved;
     @FXML
     Label lblIsLost;
+
+    @FXML
+    ListView listViewMoves;
 
     EventHandler<KeyEvent> keyboardEventHandler;
     EventHandler<MouseEvent> mouseEventHandler;
@@ -247,6 +252,24 @@ public class GameWindowAutoController extends GridPane implements Initializable 
     public void handleRedoButtonAction() {
         gameBoard.redoMove();
         clearSelection();
+    }
+
+    public void handleFindSolutionsButtonAction(){
+        try {
+            SolverDFS tempSolver = new SolverDFS(gameBoard);
+            tempSolver.searchSolution();
+            if (tempSolver.getSolutionFound()){
+                Stack<GameMove> solutions = tempSolver.getSolution();
+
+                for (int i=0; i < solutions.size(); i++) {
+                    //listViewMoves.setItems();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        updateGUI();
     }
 
     /*FIX THIS*/

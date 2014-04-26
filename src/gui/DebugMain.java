@@ -47,7 +47,7 @@ public class DebugMain {
                         break;
 
                     case 1:
-                        temp.printBoardConsole();
+                        System.out.println(temp.toString());
                         break;
 
                     case 2:

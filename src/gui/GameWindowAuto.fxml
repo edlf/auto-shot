@@ -51,6 +51,19 @@
         <Label fx:id="lblNumberOfAvailableMoves" layoutX="315.0" layoutY="105.0" text="Number of available moves:" />
         <Label fx:id="lblIsSolved" layoutX="315.0" layoutY="126.0" text="Is the board solved?" />
         <Label fx:id="lblIsLost" layoutX="315.0" layoutY="147.0" text="Is the game lost?" />
+        <ListView fx:id="listViewMoves" editable="false" layoutX="315.0" layoutY="169.0" prefHeight="200.0" prefWidth="271.0" />
+        <MenuButton fx:id="algorithmCombo" layoutX="315.0" layoutY="378.0" mnemonicParsing="false" text="Search Algorithm">
+          <items>
+            <MenuItem mnemonicParsing="false" text="DFS (Depth-first search)" />
+            <MenuItem mnemonicParsing="false" text="BFS (Breadth-first search)" />
+            <MenuItem mnemonicParsing="false" text="IDDFS (Iterative deepening depth-first search)" />
+            <MenuItem mnemonicParsing="false" text="Bidirectional search" />
+            <MenuItem mnemonicParsing="false" text="Greedy algorithm" />
+            <MenuItem mnemonicParsing="false" text="A* (A star)" />
+            <MenuItem mnemonicParsing="false" text="Heuristic" />
+          </items>
+        </MenuButton>
+        <Button layoutX="496.0" layoutY="379.0" mnemonicParsing="false" onAction="#handleFindSolutionsButtonAction" text="Find Solution" />
       </children>
     </Pane>
   </children>

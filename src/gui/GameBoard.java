@@ -443,17 +443,20 @@ public class GameBoard {
         }
     }
 
-    public void printBoardConsole() {
+    @Override
+    public String toString(){
+        String output = "";
         for (int y = 0; y < verticalSize; y++) {
             for (int x = 0; x < horizontalSize; x++) {
                 if (board[x][y]) {
-                    System.out.print("O");
+                    output+="O";
                 } else {
-                    System.out.print(" ");
+                     output+=" ";
                 }
             }
-            System.out.println();
+            output+="\n";
         }
+        return output;
     }
 
     public int getNumberOfMovesMade(){

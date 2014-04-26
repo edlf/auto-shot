@@ -25,35 +25,35 @@ public class SolverDFS {
 
     public void searchSolution() throws Exception{
         moveStack = new Stack<>();
-        searchSolutionAux(0);
+        searchSolutionAux();
         hasRun = true;
     }
 
-    private void searchSolutionAux(int level) throws Exception{
+    private void searchSolutionAux() throws Exception{
         solutionFound = gameBoard.isBoardSolved();
 
-        if (gameBoard.getNumberOfAvailableMoves() > 0){
-
-            for (int i = 0; i < gameBoard.getNumberOfAvailableMoves(); i++) {
-                attemptMove(gameBoard.getAvailableMoves().get(i));
-                searchSolutionAux(level+1);
-            }
-
-            /* No more moves to test on this node */
-            backtrack();
-
-        } else {
-            if (!solutionFound) {
-                /* No more moves on this node */
-                backtrack();
-            }
+        /* Stop recursion if the solution has been found */
+        if (solutionFound) {
+            return;
         }
 
+        /* Try available moves */
+        for (int i = 0; i < gameBoard.getNumberOfAvailableMoves(); i++) {
+            attemptMove(gameBoard.getAvailableMoves().get(i));
+            solutionFound = gameBoard.isBoardSolved();
+            searchSolutionAux();
+        }
+
+        /* No more moves and no solution? backtrack */
+        if (!solutionFound) {
+            backtrack();
+        }
     }
 
     private void backtrack(){
         gameBoard.undoMove();
         moveStack.pop();
+        numberOfBackTracks++;
     }
 
     private void attemptMove(GameMove in) throws Exception {
@@ -86,5 +86,9 @@ public class SolverDFS {
         if (!hasRun && !solutionFound) {
             System.out.println("You must run the algorithm first");
         }
+    }
+
+    public boolean getSolutionFound(){
+        return solutionFound;
     }
 }
