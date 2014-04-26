@@ -25,22 +25,24 @@ public class SolverDFS {
 
     public void searchSolution() throws Exception{
         moveStack = new Stack<>();
-        searchSolutionAux();
+        solutionFound = gameBoard.isBoardSolved();
+        if (!solutionFound) {
+            searchSolutionAux();
+        }
         hasRun = true;
     }
 
     private void searchSolutionAux() throws Exception{
-        solutionFound = gameBoard.isBoardSolved();
-
-        /* Stop recursion if the solution has been found */
-        if (solutionFound) {
-            return;
-        }
-
         /* Try available moves */
         for (int i = 0; i < gameBoard.getNumberOfAvailableMoves(); i++) {
             attemptMove(gameBoard.getAvailableMoves().get(i));
             solutionFound = gameBoard.isBoardSolved();
+
+            /* Stop recursion if the solution has been found */
+            if (solutionFound) {
+                return;
+            }
+
             searchSolutionAux();
         }
 
