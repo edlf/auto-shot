@@ -16,7 +16,6 @@ import java.util.ResourceBundle;
  * Eduardo Fernandes
  */
 public class GameWindowController extends GridPane implements Initializable {
-    private Main application;
     private GameBoard gameBoard;
     private ImageView[][] spheres;
     private int selectedX = -1, selectedY = -1;
@@ -36,12 +35,12 @@ public class GameWindowController extends GridPane implements Initializable {
     @FXML
     Label lblIsLost;
 
-    EventHandler<KeyEvent> keyboardEventHandler;
-    EventHandler<MouseEvent> mouseEventHandler;
-    EventHandler<SwipeEvent> swipeEventHandler;
+    private EventHandler<KeyEvent> keyboardEventHandler;
+    private EventHandler<MouseEvent> mouseEventHandler;
+    private EventHandler<SwipeEvent> swipeEventHandler;
 
     public void setApp(Main application) {
-        this.application = application;
+        Main application1 = application;
     }
 
     @Override
@@ -201,11 +200,7 @@ public class GameWindowController extends GridPane implements Initializable {
     }
 
     private boolean isSelected() {
-        if (selectedX == -1 && selectedY == -1) {
-            return false;
-        } else {
-            return true;
-        }
+        return !(selectedX == -1 && selectedY == -1);
     }
 
     private void doMove(int x, int y, char direction) {

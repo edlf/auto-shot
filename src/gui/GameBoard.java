@@ -117,9 +117,7 @@ public class GameBoard {
     private boolean[][] getBoardCopy() {
         boolean[][] boardCopy = new boolean[horizontalSize][verticalSize];
         for (int x = 0; x < horizontalSize; x++) {
-            for (int y = 0; y < verticalSize; y++) {
-                boardCopy[x][y] = board[x][y];
-            }
+            System.arraycopy(board[x], 0, boardCopy[x], 0, verticalSize);
         }
         return boardCopy;
     }
@@ -392,9 +390,7 @@ public class GameBoard {
 
     private void restoreBoard(boolean[][] restore) {
         for (int x = 0; x < horizontalSize; x++) {
-            for (int y = 0; y < verticalSize; y++) {
-                board[x][y] = restore[x][y];
-            }
+            System.arraycopy(restore[x], 0, board[x], 0, verticalSize);
         }
     }
 

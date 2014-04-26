@@ -8,7 +8,7 @@ import java.util.Scanner;
  * <p/>
  * Entry Point
  */
-public class DebugMain {
+class DebugMain {
 
 
     /*
@@ -100,7 +100,7 @@ public class DebugMain {
                         break;
 
                     case 99:
-                        System.exit(0);
+                        exit = true;
                         break;
                 }
 
@@ -110,7 +110,6 @@ public class DebugMain {
             System.out.println(e.toString());
             System.exit(-1);
         }
-
-
+        System.exit(0);
     }
 }

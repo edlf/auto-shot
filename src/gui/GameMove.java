@@ -5,7 +5,7 @@ package gui;
  * <p/>
  * Eduardo Fernandes
  */
-public class GameMove {
+class GameMove {
     public static final char MoveUp = 'u';
     public static final char MoveDown = 'd';
     public static final char MoveLeft = 'l';
@@ -13,7 +13,7 @@ public class GameMove {
 
     private int pieceX;
     private int pieceY;
-    char direction;
+    private char direction;
 
     GameMove(int x, int y, char d) throws Exception {
         boolean isValid;

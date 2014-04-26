@@ -61,10 +61,10 @@ public class Main extends Application {
     private void loadResources() {
         logInfo("Loading resources...");
         try {
-            logInfo("Loading wsphere.png...");
-            sphereImage = new Image(Main.class.getResourceAsStream("resources/wsphere.png"));
-            logInfo("Loading csphere.png...");
-            selectedSphereImage = new Image(Main.class.getResourceAsStream("resources/csphere.png"));
+            logInfo("Loading wSphere.png...");
+            sphereImage = new Image(Main.class.getResourceAsStream("resources/wSphere.png"));
+            logInfo("Loading cSphere.png...");
+            selectedSphereImage = new Image(Main.class.getResourceAsStream("resources/cSphere.png"));
         } catch (IllegalArgumentException e) {
             logSevereAndExit("Problems while loading resources, exiting.");
         }

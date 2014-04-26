@@ -6,7 +6,7 @@ import java.util.Stack;
  * Solver class, to be extended by a class that implements the algorithms
  * Eduardo Fernandes
  */
-public class Solver {
+class Solver {
     protected GameBoard gameBoard;
     protected Stack<GameMove> moveStack;
     protected boolean hasRun;
