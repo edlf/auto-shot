@@ -258,7 +258,7 @@ public class GameWindowAutoController extends GridPane implements Initializable 
         try {
             SolverDFS tempSolver = new SolverDFS(gameBoard);
             tempSolver.searchSolution();
-            if (tempSolver.getSolutionFound()){
+            if (tempSolver.getIsSolutionFound()){
                 Stack<GameMove> solutions = tempSolver.getSolution();
 
                 for (int i=0; i < solutions.size(); i++) {

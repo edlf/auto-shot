@@ -7,6 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1254e996-4334-48af-bd6d-9ad03f4f7b00" name="Default" comment="Create GameBoard Class">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/Solver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GameWindowAutoController.java" afterPath="$PROJECT_DIR$/src/gui/GameWindowAutoController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/SolverDFS.java" afterPath="$PROJECT_DIR$/src/gui/SolverDFS.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -117,9 +119,27 @@
       <file leaf-file-name="SolverDFS.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/SolverDFS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8812709" vertical-offset="340" max-vertical-offset="1700">
-              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="9" />
-              <folding />
+            <state vertical-scroll-proportion="0.5401338" vertical-offset="0" max-vertical-offset="833">
+              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+              <folding>
+                <element signature="method#searchSolutionAux#0;class#SolverDFS#0" expanded="false" />
+                <element signature="method#backtrack#0;class#SolverDFS#0" expanded="false" />
+                <element signature="method#attemptMove#0;class#SolverDFS#0" expanded="false" />
+                <element signature="e#1686#1687#0" expanded="true" />
+                <element signature="e#1724#1725#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Solver.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/Solver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="86" max-vertical-offset="867">
+              <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+              <folding>
+                <element signature="method#printSolutionStack#0;class#Solver#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -164,6 +184,7 @@
         <option value="$PROJECT_DIR$/src/gui/DebugMain.java" />
         <option value="$PROJECT_DIR$/src/gui/GameWindowAuto.fxml" />
         <option value="$PROJECT_DIR$/src/gui/GameWindowAutoController.java" />
+        <option value="$PROJECT_DIR$/src/gui/Solver.java" />
         <option value="$PROJECT_DIR$/src/gui/SolverDFS.java" />
       </list>
     </option>
@@ -584,14 +605,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/gui/GameBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="1445">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="663">
@@ -954,11 +967,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Solver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="86" max-vertical-offset="867">
+          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+          <folding>
+            <element signature="method#printSolutionStack#0;class#Solver#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/SolverDFS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8812709" vertical-offset="340" max-vertical-offset="1700">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="9" />
-          <folding />
+        <state vertical-scroll-proportion="0.5401338" vertical-offset="0" max-vertical-offset="833">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding>
+            <element signature="method#searchSolutionAux#0;class#SolverDFS#0" expanded="false" />
+            <element signature="method#backtrack#0;class#SolverDFS#0" expanded="false" />
+            <element signature="method#attemptMove#0;class#SolverDFS#0" expanded="false" />
+            <element signature="e#1686#1687#0" expanded="true" />
+            <element signature="e#1724#1725#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

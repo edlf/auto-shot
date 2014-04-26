@@ -6,26 +6,18 @@ import java.util.Stack;
  * Depth First Search
  * Eduardo Fernandes
  */
-public class SolverDFS {
-    private Stack<GameMove> moveStack;
+public class SolverDFS extends Solver {
     private int numberOfMovesTried;
     private int numberOfBackTracks;
-    private boolean hasRun;
-    private boolean solutionFound;
-
-    GameBoard gameBoard;
 
     SolverDFS(GameBoard input) throws Exception{
-        gameBoard = input;
-        hasRun = false;
-        solutionFound = false;
+        super(input);
         numberOfMovesTried = 0;
         numberOfBackTracks = 0;
     }
 
     public void searchSolution() throws Exception{
-        moveStack = new Stack<>();
-        solutionFound = gameBoard.isBoardSolved();
+        initializeSolver();
         if (!solutionFound) {
             searchSolutionAux();
         }
@@ -64,33 +56,14 @@ public class SolverDFS {
         numberOfMovesTried++;
     }
 
-    public Stack<GameMove> getSolution(){
-        if (hasRun && solutionFound) {
-            return moveStack;
-        } else {
-            return null;
-        }
+    @Override
+    public void printStatistics(){
+        System.out.println("Number of backtracks: " + Integer.toString(numberOfBackTracks));
+        System.out.println("Number of moves tried: " + Integer.toString(numberOfMovesTried));
     }
 
-    public void printSolutionStack(){
-        if (hasRun && solutionFound) {
-            System.out.println("Number of backtracks: " + Integer.toString(numberOfBackTracks));
-            System.out.println("Number of moves tried: " + Integer.toString(numberOfMovesTried));
-            for (int i=0; i < moveStack.size(); i++) {
-                System.out.println(moveStack.get(i));
-            }
-        }
-
-        if (hasRun && !solutionFound) {
-            System.out.println("No solution has found");
-        }
-
-        if (!hasRun && !solutionFound) {
-            System.out.println("You must run the algorithm first");
-        }
-    }
-
-    public boolean getSolutionFound(){
-        return solutionFound;
+    @Override
+    public String toString(){
+        return "DFS Algorithm";
     }
 }
