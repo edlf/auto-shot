@@ -5,6 +5,7 @@ import sun.misc.IOUtils;
 import java.io.*;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Vector;
 
 /**
@@ -83,6 +84,62 @@ public class GameBoard {
 
         file.close();
         initializeUndoRedo();
+    }
+
+    /*
+     * Original game level decoder
+     */
+    GameBoard(long map) {
+        board = new boolean[horizontalSize][verticalSize];
+        String binaryString = toBinaryStringCustom(map);
+        System.out.println(binaryString);
+
+        for (int i = (63 - 7*7); i < 7*7; i++){
+            for (int y = 0; y < verticalSize; y++) {
+                for (int x = 0; x < horizontalSize; x++) {
+                    char chPos = binaryString.charAt(i);
+                    System.out.print(chPos);
+                    switch (chPos){
+                        case '0':
+                            board[x][y] = false;
+                            break;
+
+                        case '1':
+                            board[x][y] = true;
+                            break;
+                    }
+                }
+            }
+        }
+
+        initializeUndoRedo();
+    }
+
+    /* Custom toBinaryString (padding) */
+    public static String toBinaryStringCustom(long x){
+
+        byte[] bytes = new byte[64]; // 64 bits per long
+        int pos = 0;
+
+        do{
+            bytes[63-pos++] = (byte)(x % 2);
+            x = x >> 1; // /2
+        } while(x > 0);
+
+        String output = "";
+        for (int i = 0; i < 64; i++) {
+            switch (bytes[i]) {
+                case 1:
+                    output+="1";
+                    break;
+
+                case 0:
+                    output+="0";
+                    break;
+            }
+        }
+
+        return output;
     }
 
     private void initializeUndoRedo(){

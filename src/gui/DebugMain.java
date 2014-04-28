@@ -31,6 +31,7 @@ class DebugMain {
                 System.out.println(" 5) Do move");
                 System.out.println(" 6) Undo");
                 System.out.println(" 7) Redo");
+                System.out.println(" 8) Decode Long Level");
                 System.out.println("10) Attempt DFS");
                 System.out.println("99) Exit");
 
@@ -94,7 +95,9 @@ class DebugMain {
                         break;
 
                     case 8:
-                        temp = new GameBoard("level7500.map");
+                        System.out.print("Input Level:");
+                        long level = sc.nextLong();
+                        temp = new GameBoard(level);
                         break;
 
                     case 10:
