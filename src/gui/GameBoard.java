@@ -92,30 +92,35 @@ public class GameBoard {
     GameBoard(long map) {
         board = new boolean[horizontalSize][verticalSize];
         String binaryString = toBinaryStringCustom(map);
-        System.out.println(binaryString);
 
-        for (int i = (63 - 7*7); i < 7*7; i++){
-            for (int y = 0; y < verticalSize; y++) {
-                for (int x = 0; x < horizontalSize; x++) {
-                    char chPos = binaryString.charAt(i);
-                    System.out.print(chPos);
-                    switch (chPos){
-                        case '0':
-                            board[x][y] = false;
-                            break;
+        int x = 0;
+        int y = 0;
 
-                        case '1':
-                            board[x][y] = true;
-                            break;
-                    }
-                }
+        for (int i = 0; i < binaryString.length(); i++){
+            char chPos = binaryString.charAt(i);
+
+            switch (chPos){
+                case '0':
+                    board[x][y] = false;
+                    break;
+
+                case '1':
+                    board[x][y] = true;
+                    break;
+            }
+
+            if (x == 6) {
+                x=0;
+                y++;
+            } else {
+                x++;
             }
         }
 
         initializeUndoRedo();
     }
 
-    /* Custom toBinaryString (padding) */
+    /* Custom toBinaryString (custom padding) */
     public static String toBinaryStringCustom(long x){
 
         byte[] bytes = new byte[64]; // 64 bits per long
@@ -127,7 +132,7 @@ public class GameBoard {
         } while(x > 0);
 
         String output = "";
-        for (int i = 0; i < 64; i++) {
+        for (int i = 0 + 15; i < 64; i++) {
             switch (bytes[i]) {
                 case 1:
                     output+="1";
