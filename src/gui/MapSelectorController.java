@@ -143,7 +143,7 @@ public class MapSelectorController extends GridPane  implements Initializable {
     }
 
     private void loadLevelsAux(int arrayPos, String packName) throws Exception {
-        InputStream file = GameBoard.class.getResourceAsStream("originalLevels/" + packName);
+        InputStream file = Main.class.getResourceAsStream("originalLevels/" + packName);
 
         if (file == null) {
             throw new Exception("Problem while loading level");
