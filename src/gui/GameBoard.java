@@ -438,7 +438,9 @@ public class GameBoard {
                      output+=" ";
                 }
             }
-            output+="\n";
+            if (y < verticalSize - 1) {
+                output+="\n";
+            }
         }
         return output;
     }
