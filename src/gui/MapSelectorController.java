@@ -57,7 +57,7 @@ public class MapSelectorController extends GridPane  implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            loadLevels();
+            levels = loadLevels();
             Main.selectedBoard = new GameBoard(levels[selDif][selLevel]);
             setupBoard();
             fillSelectors();
@@ -125,24 +125,26 @@ public class MapSelectorController extends GridPane  implements Initializable {
         levelSel.setValue(lItems.get(0));
     }
 
-    private void loadLevels(){
-        levels = new long[7][500];
+    public static long[][] loadLevels(){
+        long[][] loadedLevels = new long[7][500];
 
         try {
-            loadLevelsAux(0, "0_Novice.txt");
-            loadLevelsAux(1, "1_Normal.txt");
-            loadLevelsAux(2, "2_Expert.txt");
-            loadLevelsAux(3, "3_Master.txt");
-            loadLevelsAux(4, "4_Insane.txt");
-            loadLevelsAux(5, "5_Impossible.txt");
-            loadLevelsAux(6, "6_Amazing.txt");
+            loadLevelsAux(loadedLevels, 0, "0_Novice.txt");
+            loadLevelsAux(loadedLevels, 1, "1_Normal.txt");
+            loadLevelsAux(loadedLevels, 2, "2_Expert.txt");
+            loadLevelsAux(loadedLevels, 3, "3_Master.txt");
+            loadLevelsAux(loadedLevels, 4, "4_Insane.txt");
+            loadLevelsAux(loadedLevels, 5, "5_Impossible.txt");
+            loadLevelsAux(loadedLevels, 6, "6_Amazing.txt");
+            return loadedLevels;
         } catch (Exception e) {
             Main.logSevereAndExit("Problem while loading levels");
         }
 
+        return null;
     }
 
-    private void loadLevelsAux(int arrayPos, String packName) throws Exception {
+    private static void loadLevelsAux(long[][] loadLevel, int arrayPos, String packName) throws Exception {
         InputStream file = Main.class.getResourceAsStream("originalLevels/" + packName);
 
         if (file == null) {
@@ -154,7 +156,10 @@ public class MapSelectorController extends GridPane  implements Initializable {
         int readLines = 0;
 
         while ((line = reader.readLine()) != null) {
-            levels[arrayPos][readLines] = Long.parseLong(line);
+            if (readLines > loadLevel[arrayPos].length) {
+                throw new Exception("Too many levels!");
+            }
+            loadLevel[arrayPos][readLines] = Long.parseLong(line);
             readLines++;
         }
 

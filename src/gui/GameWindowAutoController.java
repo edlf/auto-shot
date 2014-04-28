@@ -1,5 +1,7 @@
 package gui;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,6 +15,7 @@ import javafx.scene.layout.Pane;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Stack;
+import java.util.Vector;
 
 /**
  * Eduardo Fernandes
@@ -23,6 +26,7 @@ public class GameWindowAutoController extends GridPane implements Initializable 
     private GameBoard gameBoard;
     private ImageView[][] spheres;
     private int selectedX = -1, selectedY = -1;
+    private Vector<String> movesListVector;
 
     @FXML
     Pane mainPane;
@@ -261,14 +265,19 @@ public class GameWindowAutoController extends GridPane implements Initializable 
 
     public void handleFindSolutionsButtonAction(){
         try {
+            movesListVector = new Vector<>();
             SolverDFS tempSolver = new SolverDFS(gameBoard);
             tempSolver.searchSolution();
             if (tempSolver.getIsSolutionFound()){
                 Stack<GameMove> solutions = tempSolver.getSolution();
 
                 for (int i=0; i < solutions.size(); i++) {
-                    //listViewMoves.setItems();
+                    movesListVector.add(solutions.get(i).toString());
+
                 }
+
+                ObservableList<String> dItems = FXCollections.observableArrayList(movesListVector);
+                listViewMoves.setItems(dItems);
             }
         } catch (Exception e) {
             e.printStackTrace();

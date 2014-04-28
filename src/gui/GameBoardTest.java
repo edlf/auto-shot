@@ -249,4 +249,25 @@ public class GameBoardTest {
             throw new Exception("The Game is NOT playable!");
         }
     }
+
+    @Test
+    public void testSolveOriginalLevels() throws Exception{
+        long[][] levels = MapSelectorController.loadLevels();
+
+        if (levels.length == 7 && levels[0].length == 500) {
+            for (int i=0; i < levels.length; i++) {
+                for (int j=0; j < levels[0].length; j++) {
+                    GameBoard temp = new GameBoard(levels[i][j]);
+                    SolverDFS tempSolver = new SolverDFS(temp);
+                    tempSolver.searchSolution();
+                    if (!tempSolver.getIsSolutionFound()){
+                        throw new Exception("Level " + Integer.toString(i) + " " + Integer.toString(j) + "could not be solved!");
+                    }
+                }
+            }
+        } else {
+            throw new Exception ("Levels are missing!");
+        }
+    }
+
 }
