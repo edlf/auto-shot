@@ -1,7 +1,5 @@
 package gui;
 
-import java.util.Stack;
-
 /**
  * Depth First Search
  * Eduardo Fernandes
