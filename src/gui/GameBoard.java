@@ -93,8 +93,8 @@ public class GameBoard {
         board = new boolean[horizontalSize][verticalSize];
         String binaryString = toBinaryStringCustom(map);
 
-        int x = 0;
-        int y = 0;
+        int x = 6;
+        int y = 6;
 
         for (int i = 0; i < binaryString.length(); i++){
             char chPos = binaryString.charAt(i);
@@ -109,11 +109,11 @@ public class GameBoard {
                     break;
             }
 
-            if (x == 6) {
-                x=0;
-                y++;
+            if (x == 0) {
+                x=6;
+                y--;
             } else {
-                x++;
+                x--;
             }
         }
 
