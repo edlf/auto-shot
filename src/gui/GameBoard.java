@@ -349,7 +349,7 @@ public class GameBoard {
 
     private void doMoveAuxDown(int x, int y) {
         /* Check if we are propagating a collision */
-        if (y < (verticalSize - arrayOffset - 1) && board[x][y + 1]) {
+        if (y < (verticalSize - arrayOffset) && board[x][y + 1]) {
             doMoveAuxDown(x, y + 1);
             return;
         }
