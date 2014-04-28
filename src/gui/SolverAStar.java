@@ -26,6 +26,7 @@ public class SolverAStar extends Solver {
     private void searchSolutionAux() throws Exception{
         /* Try available moves */
         for (int i = 0; i < gameBoard.getNumberOfAvailableMoves(); i++) {
+
             attemptMove(gameBoard.getAvailableMoves().get(i));
             solutionFound = gameBoard.isBoardSolved();
 

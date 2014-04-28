@@ -16,7 +16,7 @@ class DebugMain {
      */
     public static void main(String[] args) {
         try {
-            GameBoard temp = new GameBoard(7500);
+            GameBoard temp = new GameBoard("level7500.map");
 
             boolean exit = false;
 
@@ -42,8 +42,8 @@ class DebugMain {
 
                     case 0:
                         System.out.print("Input wanted Level:");
-                        int levelNo = sc.nextInt();
-                        temp = new GameBoard(levelNo);
+                        String levelMapName = sc.next();
+                        temp = new GameBoard(levelMapName);
                         break;
 
                     case 1:
@@ -93,10 +93,15 @@ class DebugMain {
                         temp.redoMove();
                         break;
 
+                    case 8:
+                        temp = new GameBoard("level7500.map");
+                        break;
+
                     case 10:
                         SolverDFS tempSolver = new SolverDFS(temp);
                         tempSolver.searchSolution();
                         tempSolver.printSolutionStack();
+                        tempSolver.printStatistics();
                         break;
 
                     case 99:

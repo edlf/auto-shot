@@ -51,7 +51,7 @@ public class GameWindowAutoController extends GridPane implements Initializable 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            gameBoard = new GameBoard(7500);
+            gameBoard = new GameBoard("level7500.map");
             setupBoard();
             updateGUI();
             createEventHandlers();

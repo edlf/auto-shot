@@ -1,5 +1,8 @@
 package gui;
 
+import sun.misc.IOUtils;
+
+import java.io.*;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Vector;
@@ -25,85 +28,70 @@ public class GameBoard {
     GameBoard() {
         board = new boolean[horizontalSize][verticalSize];
         clearBoard();
-        initializeVectors();
-
-        /* Add original board to vector */
-        gameBoards.add(getBoardCopy());
+        initializeUndoRedo();
     }
 
     GameBoard(boolean[][] in) {
         board = in;
-        initializeVectors();
-
-        /* Add original board to vector */
-        gameBoards.add(getBoardCopy());
+        initializeUndoRedo();
     }
 
-    /* Level constructor */
-    GameBoard(int boardId) throws Exception {
+    /*
+     * Internal map loader
+     */
+    GameBoard(String levelFile) throws Exception {
         board = new boolean[horizontalSize][verticalSize];
-        clearBoard();
-        initializeVectors();
 
-        if (boardId < 1000 || boardId > 7500) {
-            throw new Exception("Invalid boardId!");
+        InputStream file = GameBoard.class.getResourceAsStream("levels/" + levelFile);
+
+        if (file == null) {
+            throw new Exception("Problem while loading level");
         }
 
-        int level = boardId % 1000;
-        int pack = boardId / 1000;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(file));
+        String line;
+        int readLines = 0;
 
-        switch (pack) {
-            case 1:
-                if (level == 1) {
-                    level1001();
+        while ((line = reader.readLine()) != null) {
+            if (readLines >= verticalSize) {
+                throw new Exception("Invalid map (too many lines)");
+            }
+
+            String[] parts = line.split(",");
+
+            /* Validate line size */
+            if (parts.length != horizontalSize) {
+                throw new Exception("Invalid map");
+            }
+
+            for (int i = 0; i < parts.length; i++) {
+                switch (parts[i].charAt(0)) {
+                    case 'O':
+                        board[i][readLines] = true;
+                        break;
+
+                    case ' ':
+                        board[i][readLines] = false;
+                        break;
+
+                    default:
+                        throw new Exception("Invalid char in map");
                 }
-                break;
-
-            case 7:
-                if (level == 500) {
-                    level7500();
-                }
-                break;
-
-            default:
-                throw new Exception("Level: " + Integer.toString(boardId) + " not found!");
+            }
+            readLines++;
         }
 
-        /* Add original board to vector */
-        gameBoards.add(getBoardCopy());
+        file.close();
+        initializeUndoRedo();
     }
 
-    private void level1001() throws Exception {
-        if (board != null) {
-            board[1][3] = true;
-            board[4][3] = true;
-        } else {
-            throw new Exception(new InvalidParameterException("board is null!"));
-        }
-    }
-
-    private void level7500() throws Exception {
-        if (board != null) {
-            board[3][0] = true;
-            board[4][0] = true;
-            board[2][1] = true;
-            board[3][1] = true;
-            board[1][2] = true;
-            board[3][2] = true;
-            board[0][3] = true;
-            board[1][3] = true;
-            board[1][4] = true;
-            board[5][4] = true;
-            board[3][6] = true;
-        } else {
-            throw new Exception(new InvalidParameterException("board is null!"));
-        }
-    }
-
-    private void initializeVectors() {
+    private void initializeUndoRedo(){
         currentMoveIndex = 0;
         gameBoards = new Vector<boolean[][]>();
         gameMoves = new Vector<GameMove>();
+
+        /* Add original board to vector */
+        gameBoards.add(getBoardCopy());
     }
 
     private void clearBoard() {
