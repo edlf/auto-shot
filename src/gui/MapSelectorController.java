@@ -1,8 +1,13 @@
 package gui;
 
+import javafx.beans.InvalidationListener;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -11,7 +16,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
 /**
  * Eduardo Fernandes
@@ -21,6 +26,8 @@ public class MapSelectorController extends GridPane  implements Initializable {
     private long[][] levels;
     private int selDif = 0;
     private int selLevel = 0;
+    private Vector<String> difficulties;
+    private Vector<String> levelNumbers;
 
     @FXML
     Pane mainPane;
@@ -29,10 +36,10 @@ public class MapSelectorController extends GridPane  implements Initializable {
     GridPane gameGrid;
 
     @FXML
-    ChoiceBox difficultySel;
+    ComboBox difficultySel;
 
     @FXML
-    ChoiceBox levelSel;
+    ComboBox levelSel;
 
     public void setApp(Main application) {
         Main application1 = application;
@@ -68,6 +75,7 @@ public class MapSelectorController extends GridPane  implements Initializable {
     }
 
     private void updateBoard(){
+        Main.selectedBoard = new GameBoard(levels[selDif][selLevel]);
         try {
             for (int x = 0; x < GameBoard.horizontalSize; x++) {
                 for (int y = 0; y < GameBoard.verticalSize; y++) {
@@ -84,18 +92,27 @@ public class MapSelectorController extends GridPane  implements Initializable {
     }
 
     private void fillSelectors(){
-/*        difficultySel;
-        "Novice"
-        "Normal"
-        "Expert"
-        "Master"
-        "Insane"
-        "Impossible"
-        "Amazing"*/
+        difficulties = new Vector<>();
+        difficulties.add("Novice");
+        difficulties.add("Normal");
+        difficulties.add("Expert");
+        difficulties.add("Master");
+        difficulties.add("Insane");
+        difficulties.add("Impossible");
+        difficulties.add("Amazing");
 
-        for (int i = 1; i <= 500;i++) {
-            //levelSel.
+        levelNumbers = new Vector<>(500);
+        for (int i = 0; i < 500;i++) {
+            levelNumbers.add(i, Integer.toString(i+1));
         }
+
+        ObservableList<String> dItems = FXCollections.observableArrayList(difficulties);
+        difficultySel.setItems(dItems);
+        difficultySel.setValue(dItems.get(0));
+
+        ObservableList<String> lItems = FXCollections.observableArrayList(levelNumbers);
+        levelSel.setItems(lItems);
+        levelSel.setValue(lItems.get(0));
     }
 
     private void loadLevels(){
@@ -135,6 +152,8 @@ public class MapSelectorController extends GridPane  implements Initializable {
     }
 
     public void loadButtonHandler(){
-        // return to main menu
+        selDif = difficultySel.getSelectionModel().getSelectedIndex();
+        selLevel = levelSel.getSelectionModel().getSelectedIndex();
+        updateBoard();
     }
 }

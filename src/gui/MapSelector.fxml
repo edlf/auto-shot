@@ -45,24 +45,14 @@
         <Font size="14.0" fx:id="x1" />
       </font>
     </Label>
-    <ChoiceBox fx:id="difficultySel" layoutX="126.0" layoutY="329.0" prefWidth="121.0">
+    <ComboBox fx:id="difficultySel" layoutX="126.0" layoutY="329.0" prefWidth="120.0">
       <items>
-        <FXCollections  fx:factory="observableArrayList">
-          <String fx:value="Item 1" />
-          <String fx:value="Item 2" />
-          <String fx:value="Item 3" />
-        </FXCollections>
       </items>
-    </ChoiceBox>
-    <ChoiceBox fx:id="levelSel" layoutX="151.0" layoutY="369.0">
+    </ComboBox>
+    <ComboBox fx:id="levelSel" layoutX="151.0" layoutY="369.0" prefWidth="80.0">
       <items>
-        <FXCollections  fx:factory="observableArrayList">
-          <String fx:value="Item 1" />
-          <String fx:value="Item 2" />
-          <String fx:value="Item 3" />
-        </FXCollections>
       </items>
-    </ChoiceBox>
+    </ComboBox>
     <Button layoutX="164.0" layoutY="407.0" mnemonicParsing="false" fx:id="load" onAction="#loadButtonHandler" text="Load" />
   </Pane>
 </GridPane>
