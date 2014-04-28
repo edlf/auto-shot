@@ -48,6 +48,12 @@ public class StartWindowController extends GridPane implements Initializable {
         }
     }
 
+    public void handleLevelSelectButtonAction(ActionEvent event) {
+        if (application != null) {
+            application.startLevelSelector();
+        }
+    }
+
     public void handleExitButtonAction(ActionEvent event) {
         if (application != null) {
             application.exit();

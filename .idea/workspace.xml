@@ -7,7 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1254e996-4334-48af-bd6d-9ad03f4f7b00" name="Default" comment="Create GameBoard Class">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/MapSelectorController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GameWindowAutoController.java" afterPath="$PROJECT_DIR$/src/gui/GameWindowAutoController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GameWindowController.java" afterPath="$PROJECT_DIR$/src/gui/GameWindowController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Main.java" afterPath="$PROJECT_DIR$/src/gui/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MapSelector.fxml" afterPath="$PROJECT_DIR$/src/gui/MapSelector.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MapSelectorController.java" afterPath="$PROJECT_DIR$/src/gui/MapSelectorController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/StartWindow.fxml" afterPath="$PROJECT_DIR$/src/gui/StartWindow.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/StartWindowController.java" afterPath="$PROJECT_DIR$/src/gui/StartWindowController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Auto-Shot.iws" />
@@ -74,10 +80,9 @@
       <file leaf-file-name="GameBoard.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/GameBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="7633">
-              <caret line="91" column="25" selection-start-line="91" selection-start-column="25" selection-end-line="91" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="811" max-vertical-offset="8381">
+              <caret line="84" column="21" selection-start-line="45" selection-start-column="8" selection-end-line="84" selection-end-column="21" />
               <folding>
-                <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
                 <element signature="method#toBinaryStringCustom#0;class#GameBoard#0" expanded="false" />
                 <element signature="e#4585#4595#0" expanded="true" />
                 <element signature="e#6866#6876#0" expanded="true" />
@@ -94,31 +99,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameWindowController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/GameWindowController.java">
+      <file leaf-file-name="MapSelectorController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/MapSelectorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3259" max-vertical-offset="3859">
-              <caret line="169" column="5" selection-start-line="133" selection-start-column="0" selection-end-line="169" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1785">
+              <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
               <folding>
-                <element signature="e#987#988#0" expanded="true" />
-                <element signature="e#1034#1035#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#780#781#0" expanded="true" />
+                <element signature="e#827#828#0" expanded="true" />
+                <element signature="method#setupBoard#0;class#MapSelectorController#0" expanded="false" />
+                <element signature="method#updateBoard#0;class#MapSelectorController#0" expanded="false" />
+                <element signature="method#loadLevels#0;class#MapSelectorController#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapSelectorController.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gui/MapSelectorController.java">
+      <file leaf-file-name="StartWindow.fxml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/StartWindow.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.53" vertical-offset="102" max-vertical-offset="1309">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#519#520#0" expanded="true" />
-                <element signature="e#566#567#0" expanded="true" />
-                <element signature="e#1325#1326#0" expanded="true" />
-                <element signature="e#1354#1355#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="595">
+              <caret line="26" column="108" selection-start-line="26" selection-start-column="79" selection-end-line="26" selection-end-column="108" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartWindowController.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/gui/StartWindowController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.575" vertical-offset="284" max-vertical-offset="986">
+              <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -126,18 +139,8 @@
       <file leaf-file-name="MapSelector.fxml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/MapSelector.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1258">
-              <caret line="24" column="96" selection-start-line="24" selection-start-column="96" selection-end-line="24" selection-end-column="96" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameWindowAutoController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/GameWindowAutoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="4284">
-              <caret line="19" column="80" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="80" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="1258">
+              <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -146,8 +149,8 @@
       <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="2363">
-              <caret line="64" column="35" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="2635">
+              <caret line="98" column="34" selection-start-line="98" selection-start-column="16" selection-end-line="98" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -182,24 +185,24 @@
         <option value="$PROJECT_DIR$/src/gui/StartWindow.java" />
         <option value="$PROJECT_DIR$/src/gui/GameBoardTest.java" />
         <option value="$PROJECT_DIR$/src/gui/SolverNode.java" />
-        <option value="$PROJECT_DIR$/src/gui/StartWindow.fxml" />
         <option value="$PROJECT_DIR$/src/gui/GameWindowAuto.fxml" />
         <option value="$PROJECT_DIR$/src/gui/GameMoveTest.java" />
         <option value="$PROJECT_DIR$/src/gui/GameWindow.fxml" />
         <option value="$PROJECT_DIR$/src/gui/GameMove.java" />
         <option value="$PROJECT_DIR$/src/gui/Solver.java" />
-        <option value="$PROJECT_DIR$/src/gui/StartWindowController.java" />
-        <option value="$PROJECT_DIR$/src/gui/Main.java" />
         <option value="$PROJECT_DIR$/src/gui/SolverDFS.java" />
         <option value="$PROJECT_DIR$/src/gui/SolverAStar.java" />
         <option value="$PROJECT_DIR$/src/gui/levels/level1001.csv" />
         <option value="$PROJECT_DIR$/src/gui/levels/level7500.map" />
-        <option value="$PROJECT_DIR$/src/gui/GameWindowAutoController.java" />
-        <option value="$PROJECT_DIR$/src/gui/GameWindowController.java" />
         <option value="$PROJECT_DIR$/src/gui/DebugMain.java" />
         <option value="$PROJECT_DIR$/src/gui/GameBoard.java" />
         <option value="$PROJECT_DIR$/src/gui/MapSelector.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/GameWindowAutoController.java" />
+        <option value="$PROJECT_DIR$/src/gui/GameWindowController.java" />
         <option value="$PROJECT_DIR$/src/gui/MapSelectorController.java" />
+        <option value="$PROJECT_DIR$/src/gui/StartWindow.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/Main.java" />
+        <option value="$PROJECT_DIR$/src/gui/StartWindowController.java" />
       </list>
     </option>
   </component>
@@ -273,6 +276,28 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Auto-Shot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto-shot" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="originalLevels" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -313,7 +338,7 @@
       <recent name="D:\Documents\GitHub\iart\src\gui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Debug Menu">
+  <component name="RunManager" selected="Application.Auto-Shot">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -649,7 +674,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="1411">
           <caret line="37" column="46" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
           <folding>
-            <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
             <element signature="method#toBinaryStringCustom#0;class#GameBoard#0" expanded="false" />
             <element signature="e#4585#4595#0" expanded="true" />
             <element signature="e#6866#6876#0" expanded="true" />
@@ -716,7 +740,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="1411">
           <caret line="37" column="46" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
           <folding>
-            <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
             <element signature="method#toBinaryStringCustom#0;class#GameBoard#0" expanded="false" />
             <element signature="e#4585#4595#0" expanded="true" />
             <element signature="e#6866#6876#0" expanded="true" />
@@ -783,7 +806,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1411">
           <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
           <folding>
-            <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
             <element signature="method#toBinaryStringCustom#0;class#GameBoard#0" expanded="false" />
             <element signature="e#4585#4595#0" expanded="true" />
             <element signature="e#6866#6876#0" expanded="true" />
@@ -836,7 +858,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="663">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
             <element signature="method#toBinaryStringCustom#0;class#GameBoard#0" expanded="false" />
             <element signature="e#4585#4595#0" expanded="true" />
             <element signature="e#6866#6876#0" expanded="true" />
@@ -889,7 +910,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="663">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
             <element signature="method#toBinaryStringCustom#0;class#GameBoard#0" expanded="false" />
             <element signature="e#4585#4595#0" expanded="true" />
             <element signature="e#6866#6876#0" expanded="true" />
@@ -933,13 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/StartWindow.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <caret line="7" column="179" selection-start-line="7" selection-start-column="179" selection-end-line="7" selection-end-column="179" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GameWindowAuto.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1462">
@@ -955,26 +968,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GameWindow.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1224">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GameMoveTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1275">
           <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/StartWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
-          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1032,14 +1030,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="2363">
-          <caret line="64" column="35" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_05/src.zip!/java/lang/Long.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="5131" max-vertical-offset="26265">
@@ -1064,12 +1054,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/GameWindow.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1224">
+          <caret line="40" column="82" selection-start-line="40" selection-start-column="71" selection-end-line="40" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MapSelector.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="1258">
+          <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/GameWindowAutoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="248" max-vertical-offset="4352">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="57" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/GameWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60333335" vertical-offset="352" max-vertical-offset="3927">
+          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+          <folding>
+            <element signature="e#987#988#0" expanded="true" />
+            <element signature="e#1034#1035#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GameBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="7633">
-          <caret line="91" column="25" selection-start-line="91" selection-start-column="25" selection-end-line="91" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="811" max-vertical-offset="8381">
+          <caret line="84" column="21" selection-start-line="45" selection-start-column="8" selection-end-line="84" selection-end-column="21" />
           <folding>
-            <element signature="method#GameBoard#2;class#GameBoard#0" expanded="false" />
             <element signature="method#toBinaryStringCustom#0;class#GameBoard#0" expanded="false" />
             <element signature="e#4585#4595#0" expanded="true" />
             <element signature="e#6866#6876#0" expanded="true" />
@@ -1085,44 +1109,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GameWindowAutoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="4284">
-          <caret line="19" column="80" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GameWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3259" max-vertical-offset="3859">
-          <caret line="169" column="5" selection-start-line="133" selection-start-column="0" selection-end-line="169" selection-end-column="5" />
-          <folding>
-            <element signature="e#987#988#0" expanded="true" />
-            <element signature="e#1034#1035#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/MapSelector.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1258">
-          <caret line="24" column="96" selection-start-line="24" selection-start-column="96" selection-end-line="24" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MapSelectorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.53" vertical-offset="102" max-vertical-offset="1309">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1785">
+          <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#519#520#0" expanded="true" />
-            <element signature="e#566#567#0" expanded="true" />
-            <element signature="e#1325#1326#0" expanded="true" />
-            <element signature="e#1354#1355#0" expanded="true" />
+            <element signature="e#780#781#0" expanded="true" />
+            <element signature="e#827#828#0" expanded="true" />
+            <element signature="method#setupBoard#0;class#MapSelectorController#0" expanded="false" />
+            <element signature="method#updateBoard#0;class#MapSelectorController#0" expanded="false" />
+            <element signature="method#loadLevels#0;class#MapSelectorController#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/StartWindow.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="595">
+          <caret line="26" column="108" selection-start-line="26" selection-start-column="79" selection-end-line="26" selection-end-column="108" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="2635">
+          <caret line="98" column="34" selection-start-line="98" selection-start-column="16" selection-end-line="98" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/StartWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.575" vertical-offset="284" max-vertical-offset="986">
+          <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>

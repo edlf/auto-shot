@@ -46,7 +46,11 @@ public class GameWindowController extends GridPane implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            gameBoard = new GameBoard("level7500.map");
+            if (Main.selectedBoard != null){
+                gameBoard = Main.selectedBoard;
+            } else {
+                gameBoard = new GameBoard("level7500.map");
+            }
             setupBoard();
             updateGUI();
             createEventHandlers();

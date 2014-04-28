@@ -23,9 +23,11 @@ public class Main extends Application {
     private static final String mainWindowXml = "StartWindow.fxml";
     private static final String gameWindowXml = "GameWindow.fxml";
     private static final String gameWindowAutoXml = "GameWindowAuto.fxml";
+    private static final String levelSelectorXml = "MapSelector.fxml";
 
     public static Image sphereImage;
     public static Image selectedSphereImage;
+    public static GameBoard selectedBoard = null;
 
     /* JavaFX */
     private Stage stage;
@@ -89,6 +91,20 @@ public class Main extends Application {
         try {
             GameWindowController gameWindowController = (GameWindowController) replaceSceneContent(gameWindowXml);
             gameWindowController.setApp(this);
+        } catch (Exception ex) {
+            logSevereAndExit(ex);
+        }
+    }
+
+    public void startLevelSelector(){
+        logInfo("Loading level selector scene");
+        gotoLevelSelectWindow();
+    }
+
+    private void gotoLevelSelectWindow() {
+        try {
+            MapSelectorController mapSelectorController = (MapSelectorController) replaceSceneContent(levelSelectorXml);
+            mapSelectorController.setApp(this);
         } catch (Exception ex) {
             logSevereAndExit(ex);
         }
