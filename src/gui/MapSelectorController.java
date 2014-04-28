@@ -28,6 +28,8 @@ public class MapSelectorController extends GridPane  implements Initializable {
     private int selLevel = 0;
     private Vector<String> difficulties;
     private Vector<String> levelNumbers;
+    Main application1;
+    boolean isLoaded = false;
 
     @FXML
     Pane mainPane;
@@ -41,8 +43,15 @@ public class MapSelectorController extends GridPane  implements Initializable {
     @FXML
     ComboBox levelSel;
 
+    @FXML
+    private void handleCheckBoxAction() {
+        if (isLoaded){
+            updateSelection();
+        }
+    }
+
     public void setApp(Main application) {
-        Main application1 = application;
+        application1 = application;
     }
 
     @Override
@@ -53,6 +62,7 @@ public class MapSelectorController extends GridPane  implements Initializable {
             setupBoard();
             fillSelectors();
             updateGUI();
+            isLoaded = true;
         } catch (Exception e) {
             Main.logSevereAndExit(e);
         }
@@ -151,9 +161,13 @@ public class MapSelectorController extends GridPane  implements Initializable {
         file.close();
     }
 
-    public void loadButtonHandler(){
+    public void updateSelection(){
         selDif = difficultySel.getSelectionModel().getSelectedIndex();
         selLevel = levelSel.getSelectionModel().getSelectedIndex();
         updateBoard();
+    }
+
+    public void loadButtonHandler(){
+        application1.gotoStartWindow();
     }
 }

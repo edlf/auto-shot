@@ -73,7 +73,7 @@ public class Main extends Application {
 
     }
 
-    private void gotoStartWindow() {
+    public void gotoStartWindow() {
         try {
             StartWindowController startWindowController = (StartWindowController) replaceSceneContent(mainWindowXml);
             startWindowController.setApp(this);

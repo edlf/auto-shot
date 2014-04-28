@@ -18,6 +18,8 @@ import java.util.Stack;
  * Eduardo Fernandes
  */
 public class GameWindowAutoController extends GridPane implements Initializable {
+    Main application1;
+
     private GameBoard gameBoard;
     private ImageView[][] spheres;
     private int selectedX = -1, selectedY = -1;
@@ -45,7 +47,7 @@ public class GameWindowAutoController extends GridPane implements Initializable 
     EventHandler<SwipeEvent> swipeEventHandler;
 
     public void setApp(Main application) {
-        Main application1 = application;
+        application1 = application;
     }
 
     @Override
@@ -275,9 +277,8 @@ public class GameWindowAutoController extends GridPane implements Initializable 
         updateGUI();
     }
 
-    /*FIX THIS*/
     public void handleExitButtonAction() {
-        System.exit(0);
+        application1.gotoStartWindow();
     }
 
 }
