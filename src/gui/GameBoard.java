@@ -397,7 +397,7 @@ public class GameBoard {
 
     private void doMoveAuxRight(int x, int y) {
         /* Check if we are propagating a collision */
-        if (x < (horizontalSize - arrayOffset - 1) && board[x + 1][y]) {
+        if (x < (horizontalSize - arrayOffset) && board[x + 1][y]) {
             doMoveAuxRight(x + 1, y);
             return;
         }
