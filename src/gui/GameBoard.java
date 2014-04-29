@@ -1,11 +1,7 @@
 package gui;
 
-import sun.misc.IOUtils;
-
 import java.io.*;
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Vector;
 
 /**
@@ -149,8 +145,8 @@ public class GameBoard {
 
     private void initializeUndoRedo(){
         currentMoveIndex = 0;
-        gameBoards = new Vector<boolean[][]>();
-        gameMoves = new Vector<GameMove>();
+        gameBoards = new Vector<>();
+        gameMoves = new Vector<>();
 
         /* Add original board to vector */
         gameBoards.add(getBoardCopy());
@@ -294,7 +290,7 @@ public class GameBoard {
 
         currentMoveIndex++;
         if (!redo) {
-            /* Save the current board and the move */
+            /* Save the move */
             gameMoves.add(move);
         }
 
@@ -422,8 +418,8 @@ public class GameBoard {
 
     public void undoMove() {
         if (currentMoveIndex > 0 && gameMoves.size() > 0) {
-            restoreBoard(gameBoards.get(currentMoveIndex - 1));
             currentMoveIndex--;
+            restoreBoard(gameBoards.get(currentMoveIndex));
         }
     }
 
@@ -442,10 +438,6 @@ public class GameBoard {
         for (int x = 0; x < horizontalSize; x++) {
             System.arraycopy(restore[x], 0, board[x], 0, verticalSize);
         }
-    }
-
-    public boolean[][] getGameBoard() {
-        return board;
     }
 
     public boolean getBoardPiece(int x, int y) throws Exception {
