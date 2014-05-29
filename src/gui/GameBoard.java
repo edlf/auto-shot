@@ -1,5 +1,7 @@
 package gui;
 
+import javafx.util.Pair;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Vector;
@@ -505,5 +507,12 @@ public class GameBoard {
 
     public int getNumberOfAvailableMoves(){
         return getAvailableMoves().size();
+    }
+
+    public Pair<Integer,Integer> getSize(){
+        int horizontal = board.length;
+        int vertical = board[0].length;
+        Pair size = new Pair(horizontal,vertical);
+        return size;
     }
 }
