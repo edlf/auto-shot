@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 
 /**
  * Eduardo Fernandes
+ * Filipe Eiras
  */
 public class Main extends Application {
     /* Constants */
@@ -43,6 +44,20 @@ public class Main extends Application {
     public static void exit() {
         logInfo("Application is exiting");
         System.exit(0);
+    }
+
+    public static void logInfo(String in) {
+        Logger.getLogger(Main.class.getName()).log(Level.INFO, in, (Object) null);
+    }
+
+    public static void logSevereAndExit(String in) {
+        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, in, (Object) null);
+        System.exit(-1);
+    }
+
+    public static void logSevereAndExit(Exception ex) {
+        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        System.exit(-1);
     }
 
     @Override
@@ -96,7 +111,7 @@ public class Main extends Application {
         }
     }
 
-    public void startLevelSelector(){
+    public void startLevelSelector() {
         logInfo("Loading level selector scene");
         gotoLevelSelectWindow();
     }
@@ -110,7 +125,7 @@ public class Main extends Application {
         }
     }
 
-    public void startGameAuto(){
+    public void startGameAuto() {
         logInfo("Loading automatic game solver scene");
         gotoGameWindowAuto();
     }
@@ -142,21 +157,6 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.sizeToScene();
         return (Initializable) loader.getController();
-    }
-
-
-    public static void logInfo(String in) {
-        Logger.getLogger(Main.class.getName()).log(Level.INFO, in, (Object) null);
-    }
-
-    public static void logSevereAndExit(String in) {
-        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, in, (Object) null);
-        System.exit(-1);
-    }
-
-    public static void logSevereAndExit(Exception ex) {
-        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        System.exit(-1);
     }
 
 }

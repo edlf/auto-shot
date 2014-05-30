@@ -4,6 +4,7 @@ package gui;
  * GameMove Class
  * <p/>
  * Eduardo Fernandes
+ * Filipe Eiras
  */
 class GameMove {
     public static final char MoveUp = 'u';

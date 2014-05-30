@@ -2,6 +2,10 @@ package gui;
 
 import org.junit.Test;
 
+/**
+ * Eduardo Fernandes
+ * Filipe Eiras
+ */
 public class GameMoveTest {
 
     @Test

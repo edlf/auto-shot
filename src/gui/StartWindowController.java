@@ -14,10 +14,9 @@ import java.util.ResourceBundle;
  * Eduardo Fernandes
  * <p/>
  * Main Window controller
+ * Filipe Eiras
  */
 public class StartWindowController extends GridPane implements Initializable {
-    private Main application;
-
     @FXML
     Button buttonPlay;
     @FXML
@@ -26,6 +25,7 @@ public class StartWindowController extends GridPane implements Initializable {
     Button buttonAutoPlay;
     @FXML
     Button buttonCancel;
+    private Main application;
 
     public void setApp(Main application) {
         this.application = application;

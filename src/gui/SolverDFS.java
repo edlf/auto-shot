@@ -3,18 +3,19 @@ package gui;
 /**
  * Depth First Search
  * Eduardo Fernandes
+ * Filipe Eiras
  */
 public class SolverDFS extends Solver {
     private int numberOfMovesTried;
     private int numberOfBackTracks;
 
-    SolverDFS(GameBoard input) throws Exception{
+    SolverDFS(GameBoard input) throws Exception {
         super(input);
         numberOfMovesTried = 0;
         numberOfBackTracks = 0;
     }
 
-    public void searchSolution() throws Exception{
+    public void searchSolution() throws Exception {
         initializeSolver();
         if (!solutionFound) {
             searchSolutionAux();
@@ -22,7 +23,7 @@ public class SolverDFS extends Solver {
         hasRun = true;
     }
 
-    private void searchSolutionAux() throws Exception{
+    private void searchSolutionAux() throws Exception {
         /* Try available moves */
         for (int i = 0; i < gameBoard.getNumberOfAvailableMoves(); i++) {
             attemptMove(gameBoard.getAvailableMoves().get(i));
@@ -42,7 +43,7 @@ public class SolverDFS extends Solver {
         }
     }
 
-    private void backtrack(){
+    private void backtrack() {
         gameBoard.undoMove();
         moveStack.pop();
         numberOfBackTracks++;
@@ -55,13 +56,13 @@ public class SolverDFS extends Solver {
     }
 
     @Override
-    public void printStatistics(){
+    public void printStatistics() {
         System.out.println("Number of backtracks: " + Integer.toString(numberOfBackTracks));
         System.out.println("Number of moves tried: " + Integer.toString(numberOfMovesTried));
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "DFS Algorithm";
     }
 }

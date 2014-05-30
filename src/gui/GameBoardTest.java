@@ -2,6 +2,10 @@ package gui;
 
 import org.junit.Test;
 
+/**
+ * Eduardo Fernandes
+ * Filipe Eiras
+ */
 public class GameBoardTest {
 
     @Test
@@ -251,22 +255,22 @@ public class GameBoardTest {
     }
 
     @Test
-    public void testSolveOriginalLevels() throws Exception{
+    public void testSolveOriginalLevels() throws Exception {
         long[][] levels = MapSelectorController.loadLevels();
 
         if (levels.length == 7 && levels[0].length == 500) {
-            for (int i=0; i < levels.length; i++) {
-                for (int j=0; j < levels[0].length; j++) {
+            for (int i = 0; i < levels.length; i++) {
+                for (int j = 0; j < levels[0].length; j++) {
                     GameBoard temp = new GameBoard(levels[i][j]);
                     SolverDFS tempSolver = new SolverDFS(temp);
                     tempSolver.searchSolution();
-                    if (!tempSolver.getIsSolutionFound()){
+                    if (!tempSolver.getIsSolutionFound()) {
                         throw new Exception("Level " + Integer.toString(i) + " " + Integer.toString(j) + "could not be solved!");
                     }
                 }
             }
         } else {
-            throw new Exception ("Levels are missing!");
+            throw new Exception("Levels are missing!");
         }
     }
 

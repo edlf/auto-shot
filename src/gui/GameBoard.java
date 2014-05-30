@@ -2,12 +2,15 @@ package gui;
 
 import javafx.util.Pair;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Vector;
 
 /**
  * Eduardo Fernandes
+ * Filipe Eiras
  */
 public class GameBoard {
     /* Constants */
@@ -94,10 +97,10 @@ public class GameBoard {
         int x = 6;
         int y = 6;
 
-        for (int i = 0; i < binaryString.length(); i++){
+        for (int i = 0; i < binaryString.length(); i++) {
             char chPos = binaryString.charAt(i);
 
-            switch (chPos){
+            switch (chPos) {
                 case '0':
                     board[x][y] = false;
                     break;
@@ -108,7 +111,7 @@ public class GameBoard {
             }
 
             if (x == 0) {
-                x=6;
+                x = 6;
                 y--;
             } else {
                 x--;
@@ -119,25 +122,25 @@ public class GameBoard {
     }
 
     /* Custom toBinaryString (custom padding) */
-    public static String toBinaryStringCustom(long x){
+    public static String toBinaryStringCustom(long x) {
 
         byte[] bytes = new byte[64]; // 64 bits per long
         int pos = 0;
 
-        do{
-            bytes[63-pos++] = (byte)(x % 2);
+        do {
+            bytes[63 - pos++] = (byte) (x % 2);
             x = x >> 1; // /2
-        } while(x > 0);
+        } while (x > 0);
 
         String output = "";
         for (int i = 0 + 15; i < 64; i++) {
             switch (bytes[i]) {
                 case 1:
-                    output+="1";
+                    output += "1";
                     break;
 
                 case 0:
-                    output+="0";
+                    output += "0";
                     break;
             }
         }
@@ -145,7 +148,7 @@ public class GameBoard {
         return output;
     }
 
-    public void initializeUndoRedo(){
+    public void initializeUndoRedo() {
         currentMoveIndex = 0;
         gameBoards = new Vector<>();
         gameMoves = new Vector<>();
@@ -484,39 +487,39 @@ public class GameBoard {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         String output = "";
         for (int y = 0; y < verticalSize; y++) {
             for (int x = 0; x < horizontalSize; x++) {
                 if (board[x][y]) {
-                    output+="O";
+                    output += "O";
                 } else {
-                     output+=" ";
+                    output += " ";
                 }
             }
             if (y < verticalSize - 1) {
-                output+="\n";
+                output += "\n";
             }
         }
         return output;
     }
 
-    public int getNumberOfMovesMade(){
+    public int getNumberOfMovesMade() {
         return currentMoveIndex;
     }
 
-    public int getNumberOfAvailableMoves(){
+    public int getNumberOfAvailableMoves() {
         return getAvailableMoves().size();
     }
 
-    public Pair<Integer,Integer> getSize(){
+    public Pair<Integer, Integer> getSize() {
         int horizontal = board.length;
         int vertical = board[0].length;
-        return new Pair<>(horizontal,vertical);
+        return new Pair<>(horizontal, vertical);
     }
 
-    public void removeExtra(){
-        for (int i = currentMoveIndex + 1; i < gameBoards.size() ; i++) {
+    public void removeExtra() {
+        for (int i = currentMoveIndex + 1; i < gameBoards.size(); i++) {
             gameBoards.remove(i);
         }
         for (int i = currentMoveIndex; i < gameMoves.size(); i++) {

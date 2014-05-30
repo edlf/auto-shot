@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 /**
  * Eduardo Fernandes
+ * Filipe Eiras
  * <p/>
  * Entry Point
  */

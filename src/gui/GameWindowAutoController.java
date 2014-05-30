@@ -19,22 +19,14 @@ import java.util.Vector;
 
 /**
  * Eduardo Fernandes
+ * Filipe Eiras
  */
 public class GameWindowAutoController extends GridPane implements Initializable {
     Main application1;
-
-    private GameBoard gameBoard;
-    private ImageView[][] spheres;
-    private int selectedX = -1, selectedY = -1;
-    private Vector<String> movesListVector;
-    private int algorithm = 0; //0 for DFS, 1 for BFS
-
     @FXML
     Pane mainPane;
-
     @FXML
     GridPane gameGrid;
-
     @FXML
     Label lblNumberOfMovesDone;
     @FXML
@@ -43,13 +35,16 @@ public class GameWindowAutoController extends GridPane implements Initializable 
     Label lblIsSolved;
     @FXML
     Label lblIsLost;
-
     @FXML
     ListView listViewMoves;
-
     EventHandler<KeyEvent> keyboardEventHandler;
     EventHandler<MouseEvent> mouseEventHandler;
     EventHandler<SwipeEvent> swipeEventHandler;
+    private GameBoard gameBoard;
+    private ImageView[][] spheres;
+    private int selectedX = -1, selectedY = -1;
+    private Vector<String> movesListVector;
+    private int algorithm = 0; //0 for DFS, 1 for BFS
 
     public void setApp(Main application) {
         application1 = application;
@@ -58,7 +53,7 @@ public class GameWindowAutoController extends GridPane implements Initializable 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            if (Main.selectedBoard != null){
+            if (Main.selectedBoard != null) {
                 gameBoard = Main.selectedBoard;
             } else {
                 gameBoard = new GameBoard("level7500.map");
@@ -164,7 +159,7 @@ public class GameWindowAutoController extends GridPane implements Initializable 
         updateStats();
     }
 
-    private void updateBoard(){
+    private void updateBoard() {
         try {
             for (int x = 0; x < GameBoard.horizontalSize; x++) {
                 for (int y = 0; y < GameBoard.verticalSize; y++) {
@@ -185,7 +180,7 @@ public class GameWindowAutoController extends GridPane implements Initializable 
         }
     }
 
-    private void updateStats(){
+    private void updateStats() {
         lblNumberOfMovesDone.setText("Number of moves: " + Integer.toString(gameBoard.getNumberOfMovesMade()));
 
         lblNumberOfAvailableMoves.setText("Number of available moves: " + Integer.toString(gameBoard.getNumberOfAvailableMoves()));
@@ -264,19 +259,19 @@ public class GameWindowAutoController extends GridPane implements Initializable 
         clearSelection();
     }
 
-    public void handleFindSolutionsButtonAction(){
+    public void handleFindSolutionsButtonAction() {
         try {
             movesListVector = new Vector<>();
             Solver tempSolver;
-            if(algorithm == 0)
+            if (algorithm == 0)
                 tempSolver = new SolverDFS(gameBoard);
             else
                 tempSolver = new SolverAStar(gameBoard);
             tempSolver.searchSolution();
-            if (tempSolver.getIsSolutionFound()){
+            if (tempSolver.getIsSolutionFound()) {
                 Stack<GameMove> solutions = tempSolver.getSolution();
 
-                for (int i=0; i < solutions.size(); i++) {
+                for (int i = 0; i < solutions.size(); i++) {
                     movesListVector.add(solutions.get(i).toString());
 
                 }
@@ -291,12 +286,12 @@ public class GameWindowAutoController extends GridPane implements Initializable 
         updateGUI();
     }
 
-    public void handleDFS(){
+    public void handleDFS() {
         algorithm = 0;
         System.out.println("DFS selected");
     }
 
-    public void handleBFS(){
+    public void handleBFS() {
         algorithm = 1;
         System.out.println("BFS selected");
     }

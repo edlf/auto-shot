@@ -5,6 +5,7 @@ import java.util.Stack;
 /**
  * Solver class, to be extended by a class that implements the algorithms
  * Eduardo Fernandes
+ * Filipe Eiras
  */
 class Solver {
     protected GameBoard gameBoard;
@@ -12,23 +13,23 @@ class Solver {
     protected boolean hasRun;
     protected boolean solutionFound;
 
-    Solver(GameBoard input){
+    Solver(GameBoard input) {
         gameBoard = input;
         hasRun = false;
         solutionFound = false;
     }
 
-    public void searchSolution() throws Exception{
+    public void searchSolution() throws Exception {
 
     }
 
-    protected void initializeSolver(){
+    protected void initializeSolver() {
         moveStack = new Stack<>();
         hasRun = false;
         solutionFound = gameBoard.isBoardSolved();
     }
 
-    public Stack<GameMove> getSolution(){
+    public Stack<GameMove> getSolution() {
         if (hasRun && solutionFound) {
             return moveStack;
         } else {
@@ -36,13 +37,13 @@ class Solver {
         }
     }
 
-    public boolean getIsSolutionFound(){
+    public boolean getIsSolutionFound() {
         return solutionFound;
     }
 
-    public void printSolutionStack(){
+    public void printSolutionStack() {
         if (hasRun && solutionFound) {
-            for (int i=0; i < moveStack.size(); i++) {
+            for (int i = 0; i < moveStack.size(); i++) {
                 System.out.println(moveStack.get(i));
             }
         }
@@ -56,6 +57,6 @@ class Solver {
         }
     }
 
-    public void printStatistics(){
+    public void printStatistics() {
     }
 }

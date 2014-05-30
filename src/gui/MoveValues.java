@@ -1,13 +1,14 @@
 package gui;
 
 /**
- * Created by Eiras.
+ * Eduardo Fernandes
+ * Filipe Eiras
  */
 public class MoveValues implements Comparable<MoveValues> {
     int number;
     int value;
 
-    public MoveValues(int number, int value){
+    public MoveValues(int number, int value) {
         this.number = number;
         this.value = value;
     }

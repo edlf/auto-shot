@@ -14,19 +14,14 @@ import java.util.ResourceBundle;
 
 /**
  * Eduardo Fernandes
+ * Filipe Eiras
  */
 public class GameWindowController extends GridPane implements Initializable {
     Main application1;
-    private GameBoard gameBoard;
-    private ImageView[][] spheres;
-    private int selectedX = -1, selectedY = -1;
-
     @FXML
     Pane mainPane;
-
     @FXML
     GridPane gameGrid;
-
     @FXML
     Label lblNumberOfMovesDone;
     @FXML
@@ -35,7 +30,9 @@ public class GameWindowController extends GridPane implements Initializable {
     Label lblIsSolved;
     @FXML
     Label lblIsLost;
-
+    private GameBoard gameBoard;
+    private ImageView[][] spheres;
+    private int selectedX = -1, selectedY = -1;
     private EventHandler<KeyEvent> keyboardEventHandler;
     private EventHandler<MouseEvent> mouseEventHandler;
     private EventHandler<SwipeEvent> swipeEventHandler;
@@ -47,7 +44,7 @@ public class GameWindowController extends GridPane implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            if (Main.selectedBoard != null){
+            if (Main.selectedBoard != null) {
                 gameBoard = Main.selectedBoard;
             } else {
                 gameBoard = new GameBoard("level7500.map");
@@ -153,7 +150,7 @@ public class GameWindowController extends GridPane implements Initializable {
         updateStats();
     }
 
-    private void updateBoard(){
+    private void updateBoard() {
         try {
             for (int x = 0; x < GameBoard.horizontalSize; x++) {
                 for (int y = 0; y < GameBoard.verticalSize; y++) {
@@ -174,7 +171,7 @@ public class GameWindowController extends GridPane implements Initializable {
         }
     }
 
-    private void updateStats(){
+    private void updateStats() {
         lblNumberOfMovesDone.setText("Number of moves: " + Integer.toString(gameBoard.getNumberOfMovesMade()));
 
         lblNumberOfAvailableMoves.setText("Number of available moves: " + Integer.toString(gameBoard.getNumberOfAvailableMoves()));
