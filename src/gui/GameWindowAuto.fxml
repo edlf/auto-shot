@@ -3,8 +3,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<GridPane xmlns:fx="http://javafx.com/fxml/1" id="GameGridPane" alignment="CENTER" gridLinesVisible="false" hgap="10.0" prefHeight="455.0"
-          prefWidth="600.0" vgap="10.0" xmlns="http://javafx.com/javafx/2.2"
+<GridPane xmlns:fx="http://javafx.com/fxml/1" id="GameGridPane" alignment="CENTER" gridLinesVisible="false" hgap="10.0"
+          prefHeight="455.0"
+          prefWidth="600.0" vgap="10.0" xmlns="http://javafx.com/javafx/8"
           fx:controller="gui.GameWindowAutoController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
@@ -38,24 +39,26 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
             </rowConstraints>
         </GridPane>
-        <Button layoutX="88.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleUndoButtonAction" text="Undo"/>
-        <Button layoutX="163.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleRedoButtonAction"
-                text="(Re)do"/>
-        <Button layoutX="547.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleExitButtonAction" text="Exit"/>
-        <Button layoutX="122.0" layoutY="342.0" minWidth="58.0" mnemonicParsing="false" onAction="#handleUpButtonAction"
-                text="UP"/>
-        <Button layoutX="121.0" layoutY="378.0" minWidth="58.0" mnemonicParsing="false"
+        <Button fx:id="undoButton" layoutX="88.0" layoutY="420.0" mnemonicParsing="false"
+                onAction="#handleUndoButtonAction" text="Undo"/>
+        <Button fx:id="redoButton" layoutX="163.0" layoutY="420.0" mnemonicParsing="false"
+                onAction="#handleRedoButtonAction" text="(Re)do"/>
+        <Button layoutX="547.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleExitButtonAction"
+                text="Exit"/>
+        <Button fx:id="upButton" layoutX="122.0" layoutY="342.0" minWidth="58.0" mnemonicParsing="false"
+                onAction="#handleUpButtonAction" text="UP"/>
+        <Button fx:id="downButton" layoutX="121.0" layoutY="378.0" minWidth="58.0" mnemonicParsing="false"
                 onAction="#handleDownButtonAction" text="DOWN"/>
-        <Button layoutX="48.0" layoutY="378.0" minWidth="58.0" mnemonicParsing="false"
+        <Button fx:id="leftButton" layoutX="48.0" layoutY="378.0" minWidth="58.0" mnemonicParsing="false"
                 onAction="#handleLeftButtonAction" text="LEFT"/>
-        <Button layoutX="195.0" layoutY="378.0" minWidth="58.0" mnemonicParsing="false"
+        <Button fx:id="rightButton" layoutX="195.0" layoutY="378.0" minWidth="58.0" mnemonicParsing="false"
                 onAction="#handleRightButtonAction" text="RIGHT"/>
         <Label layoutX="113.0" layoutY="57.0" text="Game Board">
             <font>
-                <Font size="14.0" fx:id="x1"/>
+                <Font size="14.0"/>
             </font>
         </Label>
-        <Label font="$x1" layoutX="416.0" layoutY="57.0" text="Statistics"/>
+        <Label layoutX="416.0" layoutY="57.0" text="Statistics"/>
         <Label fx:id="lblNumberOfMovesDone" layoutX="315.0" layoutY="84.0" text="Number of moves:"/>
         <Label fx:id="lblNumberOfAvailableMoves" layoutX="315.0" layoutY="105.0" text="Number of available moves:"/>
         <Label fx:id="lblIsSolved" layoutX="315.0" layoutY="126.0" text="Is the board solved?"/>

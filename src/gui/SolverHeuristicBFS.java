@@ -1,32 +1,34 @@
 package gui;
 
+import com.sun.istack.internal.NotNull;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
 /**
- * A* Algorithm Solver
+ * BFS + Heuristic solver
  * Eduardo Fernandes
  * Filipe Eiras
  */
-public class SolverAStar extends Solver {
+public class SolverHeuristicBFS extends Solver {
     private int numberOfMovesTried;
     private int numberOfBackTracks;
 
-    SolverAStar(GameBoard input) throws Exception {
+    SolverHeuristicBFS(@NotNull GameBoard input) {
         super(input);
         numberOfMovesTried = 0;
         numberOfBackTracks = 0;
     }
 
-    protected void initializeSolver() {
+    void initializeSolver() {
         moveStack = new Stack<>();
         hasRun = false;
         solutionFound = gameBoard.isBoardSolved();
     }
 
-    protected int linesChoice(int i, ArrayList<GameMove> availableMoves) throws Exception {
+    int linesChoice(int i, ArrayList<GameMove> availableMoves) throws Exception {
         gameBoard.doMove(availableMoves.get(i), false);
         int lines = getVerticalLines();
         lines += getHorizontalLines();
@@ -35,7 +37,7 @@ public class SolverAStar extends Solver {
         return lines;
     }
 
-    protected void orderChoices(ArrayList<GameMove> availableMoves, List<MoveValues> moves) throws Exception {
+    void orderChoices(ArrayList<GameMove> availableMoves, List<MoveValues> moves) throws Exception {
         for (int i = 0; i < availableMoves.size(); i++) {
             moves.add(new MoveValues(i, linesChoice(i, availableMoves)));
         }
@@ -50,7 +52,7 @@ public class SolverAStar extends Solver {
         hasRun = true;
     }
 
-    public int getVerticalLines() {
+    int getVerticalLines() {
         int lines = 0;
         for (int i = 0; i < gameBoard.getSize().getKey(); i++) {
             for (int j = 0; j < gameBoard.getSize().getValue(); j++) {
@@ -60,14 +62,14 @@ public class SolverAStar extends Solver {
                         break;
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Main.logSevereAndExit(e);
                 }
             }
         }
         return lines;
     }
 
-    public int getHorizontalLines() {
+    int getHorizontalLines() {
         int lines = 0;
         for (int j = 0; j < gameBoard.getSize().getValue(); j++) {
             for (int i = 0; i < gameBoard.getSize().getKey(); i++) {
@@ -77,7 +79,7 @@ public class SolverAStar extends Solver {
                         break;
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Main.logSevereAndExit(e);
                 }
             }
         }
@@ -89,11 +91,11 @@ public class SolverAStar extends Solver {
         List<MoveValues> moves = new ArrayList<>();
         orderChoices(gameBoard.getAvailableMoves(), moves);
 
-        for (int i = 0; i < moves.size(); i++) {
+        for (MoveValues move : moves) {
             if (solutionFound) {
                 return;
             }
-            attemptMove(gameBoard.getAvailableMoves().get(moves.get(i).number));
+            attemptMove(gameBoard.getAvailableMoves().get(move.getNumber()));
             solutionFound = gameBoard.isBoardSolved();
 
             /* Stop recursion if the solution has been found */
@@ -138,7 +140,7 @@ public class SolverAStar extends Solver {
 
     @Override
     public String toString() {
-        return "A* Algorithm";
+        return "BFS + Heuristic Algorithm";
     }
 
 }

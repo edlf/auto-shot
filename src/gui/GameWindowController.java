@@ -3,19 +3,23 @@ package gui;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.*;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
  * Eduardo Fernandes
  * Filipe Eiras
  */
+@SuppressWarnings("WeakerAccess")
 public class GameWindowController extends GridPane implements Initializable {
     Main application1;
     @FXML
@@ -30,12 +34,22 @@ public class GameWindowController extends GridPane implements Initializable {
     Label lblIsSolved;
     @FXML
     Label lblIsLost;
+    @FXML
+    Button upButton;
+    @FXML
+    Button downButton;
+    @FXML
+    Button leftButton;
+    @FXML
+    Button rightButton;
+    @FXML
+    Button undoButton;
+    @FXML
+    Button redoButton;
     private GameBoard gameBoard;
     private ImageView[][] spheres;
     private int selectedX = -1, selectedY = -1;
-    private EventHandler<KeyEvent> keyboardEventHandler;
     private EventHandler<MouseEvent> mouseEventHandler;
-    private EventHandler<SwipeEvent> swipeEventHandler;
 
     public void setApp(Main application) {
         application1 = application;
@@ -44,11 +58,7 @@ public class GameWindowController extends GridPane implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            if (Main.selectedBoard != null) {
-                gameBoard = Main.selectedBoard;
-            } else {
-                gameBoard = new GameBoard("level7500.map");
-            }
+            gameBoard = Main.selectedBoard;
             setupBoard();
             updateGUI();
             createEventHandlers();
@@ -73,64 +83,6 @@ public class GameWindowController extends GridPane implements Initializable {
                 clearSelection();
             }
         };
-
-        keyboardEventHandler = new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (isSelected()) {
-                    if (event.getEventType() == KeyEvent.KEY_TYPED) {
-                        if (event.getCode() == KeyCode.UP) {
-                            doMove(selectedX, selectedY, GameMove.MoveUp);
-                            return;
-                        }
-
-                        if (event.getCode() == KeyCode.DOWN) {
-                            doMove(selectedX, selectedY, GameMove.MoveDown);
-                            return;
-                        }
-                        if (event.getCode() == KeyCode.LEFT) {
-                            doMove(selectedX, selectedY, GameMove.MoveLeft);
-                            return;
-                        }
-                        if (event.getCode() == KeyCode.RIGHT) {
-                            doMove(selectedX, selectedY, GameMove.MoveRight);
-                            return;
-                        }
-                    }
-                }
-            }
-        };
-
-        swipeEventHandler = new EventHandler<SwipeEvent>() {
-            @Override
-            public void handle(SwipeEvent event) {
-                for (int x = 0; x < GameBoard.horizontalSize; x++) {
-                    for (int y = 0; y < GameBoard.verticalSize; y++) {
-                        if (event.getTarget() == spheres[x][y]) {
-                            if (event.getEventType() == SwipeEvent.SWIPE_UP) {
-                                doMove(x, y, GameMove.MoveUp);
-                                return;
-                            }
-
-                            if (event.getEventType() == SwipeEvent.SWIPE_DOWN) {
-                                doMove(x, y, GameMove.MoveDown);
-                                return;
-                            }
-
-                            if (event.getEventType() == SwipeEvent.SWIPE_LEFT) {
-                                doMove(x, y, GameMove.MoveLeft);
-                                return;
-                            }
-
-                            if (event.getEventType() == SwipeEvent.SWIPE_RIGHT) {
-                                doMove(x, y, GameMove.MoveRight);
-                                return;
-                            }
-                        }
-                    }
-                }
-            }
-        };
     }
 
     private void setupBoard() {
@@ -148,10 +100,12 @@ public class GameWindowController extends GridPane implements Initializable {
     private void updateGUI() {
         updateBoard();
         updateStats();
+        updateButtons();
     }
 
     private void updateBoard() {
         try {
+            // Sphere draw
             for (int x = 0; x < GameBoard.horizontalSize; x++) {
                 for (int y = 0; y < GameBoard.verticalSize; y++) {
                     if (gameBoard.getBoardPiece(x, y)) {
@@ -166,6 +120,38 @@ public class GameWindowController extends GridPane implements Initializable {
                     }
                 }
             }
+
+            // Available moves draw
+            if (isSelected()) {
+                ArrayList<GameMove> moves = gameBoard.getAvailableMovesOnPosition(selectedX, selectedY);
+                for (GameMove gameMove : moves) {
+                    switch (gameMove.getDirection()) {
+                        case GameMove.MoveUp:
+                            spheres[selectedX][selectedY - 1].setImage(Main.upArrowImage);
+                            spheres[selectedX][selectedY - 1].setVisible(true);
+                            break;
+
+                        case GameMove.MoveDown:
+                            spheres[selectedX][selectedY + 1].setImage(Main.downArrowImage);
+                            spheres[selectedX][selectedY + 1].setVisible(true);
+                            break;
+
+                        case GameMove.MoveLeft:
+                            spheres[selectedX - 1][selectedY].setImage(Main.leftArrowImage);
+                            spheres[selectedX - 1][selectedY].setVisible(true);
+                            break;
+
+                        case GameMove.MoveRight:
+                            spheres[selectedX + 1][selectedY].setImage(Main.rightArrowImage);
+                            spheres[selectedX + 1][selectedY].setVisible(true);
+                            break;
+
+                        default:
+                            Main.logSevereAndExit("Invalid move on updateBoard");
+                    }
+                }
+            }
+
         } catch (Exception e) {
             Main.logSevereAndExit(e);
         }
@@ -195,6 +181,47 @@ public class GameWindowController extends GridPane implements Initializable {
         updateGUI();
     }
 
+    private void updateButtons() {
+        upButton.setDisable(true);
+        downButton.setDisable(true);
+        leftButton.setDisable(true);
+        rightButton.setDisable(true);
+
+        if (isSelected()) {
+            try {
+                ArrayList<GameMove> moves = gameBoard.getAvailableMovesOnPosition(selectedX, selectedY);
+                for (GameMove gameMove : moves) {
+                    switch (gameMove.getDirection()) {
+                        case GameMove.MoveUp:
+                            upButton.setDisable(false);
+                            break;
+
+                        case GameMove.MoveDown:
+                            downButton.setDisable(false);
+                            break;
+
+                        case GameMove.MoveLeft:
+                            leftButton.setDisable(false);
+                            break;
+
+                        case GameMove.MoveRight:
+                            rightButton.setDisable(false);
+                            break;
+
+                        default:
+                            Main.logSevereAndExit("Invalid move on updateButtons");
+                    }
+                }
+            } catch (Exception e) {
+                Main.logSevereAndExit(e);
+            }
+
+        }
+
+        undoButton.setDisable(!gameBoard.isUndoAvailable());
+        redoButton.setDisable(!gameBoard.isRedoAvailable());
+    }
+
     private void selectPiece(int x, int y) {
         selectedX = x;
         selectedY = y;
@@ -220,32 +247,39 @@ public class GameWindowController extends GridPane implements Initializable {
         }
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleUpButtonAction() {
         doMove(selectedX, selectedY, GameMove.MoveUp);
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleDownButtonAction() {
         doMove(selectedX, selectedY, GameMove.MoveDown);
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleLeftButtonAction() {
         doMove(selectedX, selectedY, GameMove.MoveLeft);
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleRightButtonAction() {
         doMove(selectedX, selectedY, GameMove.MoveRight);
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleUndoButtonAction() {
         gameBoard.undoMove();
         clearSelection();
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleRedoButtonAction() {
         gameBoard.redoMove();
         clearSelection();
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleExitButtonAction() {
         application1.gotoStartWindow();
     }

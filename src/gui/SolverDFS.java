@@ -1,5 +1,7 @@
 package gui;
 
+import com.sun.istack.internal.NotNull;
+
 /**
  * Depth First Search
  * Eduardo Fernandes
@@ -9,7 +11,7 @@ public class SolverDFS extends Solver {
     private int numberOfMovesTried;
     private int numberOfBackTracks;
 
-    SolverDFS(GameBoard input) throws Exception {
+    SolverDFS(@NotNull GameBoard input) {
         super(input);
         numberOfMovesTried = 0;
         numberOfBackTracks = 0;

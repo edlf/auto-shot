@@ -1,5 +1,7 @@
 package gui;
 
+import com.sun.istack.internal.NotNull;
+
 /**
  * GameMove Class
  * <p/>
@@ -81,16 +83,13 @@ class GameMove {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(@NotNull Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         GameMove gameMove = (GameMove) o;
 
-        if (direction != gameMove.direction) return false;
-        else if (pieceX != gameMove.pieceX) return false;
-        else if (pieceY != gameMove.pieceY) return false;
-        else return true;
+        return !((direction != gameMove.direction) || (pieceX != gameMove.pieceX) || (pieceY != gameMove.pieceY));
     }
 
     @Override

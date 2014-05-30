@@ -6,6 +6,7 @@ import org.junit.Test;
  * Eduardo Fernandes
  * Filipe Eiras
  */
+@SuppressWarnings("UnusedDeclaration")
 public class GameBoardTest {
 
     @Test
@@ -275,7 +276,7 @@ public class GameBoardTest {
                     }
 
                     temp = new GameBoard(levels[i][j]);
-                    SolverAStar tempSolver2 = new SolverAStar(temp);
+                    SolverHeuristicBFS tempSolver2 = new SolverHeuristicBFS(temp);
                     tempSolver2.searchSolution();
                     /* Compare */
                     numberOfBacktracksAS += tempSolver2.getNumberOfBackTracks();

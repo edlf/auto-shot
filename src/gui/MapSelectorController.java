@@ -13,31 +13,35 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.Vector;
 
 /**
  * Eduardo Fernandes
  * Filipe Eiras
  */
+@SuppressWarnings("WeakerAccess")
 public class MapSelectorController extends GridPane implements Initializable {
     Main application1;
     boolean isLoaded = false;
+    @SuppressWarnings("UnusedDeclaration")
     @FXML
     Pane mainPane;
+    @SuppressWarnings("UnusedDeclaration")
     @FXML
     GridPane gameGrid;
     @FXML
-    ComboBox difficultySel;
+    ComboBox<String> difficultySel;
     @FXML
-    ComboBox levelSel;
+    ComboBox<String> levelSel;
     private ImageView[][] spheres;
     private long[][] levels;
     private int selDif = 0;
     private int selLevel = 0;
-    private Vector<String> difficulties;
-    private Vector<String> levelNumbers;
 
+    /*
+     * Extracted levels loader
+     */
     public static long[][] loadLevels() {
         long[][] loadedLevels = new long[7][500];
 
@@ -79,6 +83,7 @@ public class MapSelectorController extends GridPane implements Initializable {
         file.close();
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     @FXML
     private void handleCheckBoxAction() {
         if (isLoaded) {
@@ -138,7 +143,7 @@ public class MapSelectorController extends GridPane implements Initializable {
     }
 
     private void fillSelectors() {
-        difficulties = new Vector<>();
+        ArrayList<String> difficulties = new ArrayList<>();
         difficulties.add("Novice");
         difficulties.add("Normal");
         difficulties.add("Expert");
@@ -147,7 +152,7 @@ public class MapSelectorController extends GridPane implements Initializable {
         difficulties.add("Impossible");
         difficulties.add("Amazing");
 
-        levelNumbers = new Vector<>(500);
+        ArrayList<String> levelNumbers = new ArrayList<>(500);
         for (int i = 0; i < 500; i++) {
             levelNumbers.add(i, Integer.toString(i + 1));
         }
@@ -167,6 +172,7 @@ public class MapSelectorController extends GridPane implements Initializable {
         updateBoard();
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void loadButtonHandler() {
         application1.gotoStartWindow();
     }

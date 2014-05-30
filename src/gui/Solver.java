@@ -7,11 +7,11 @@ import java.util.Stack;
  * Eduardo Fernandes
  * Filipe Eiras
  */
-class Solver {
-    protected GameBoard gameBoard;
-    protected Stack<GameMove> moveStack;
-    protected boolean hasRun;
-    protected boolean solutionFound;
+abstract class Solver {
+    final GameBoard gameBoard;
+    Stack<GameMove> moveStack;
+    boolean hasRun;
+    boolean solutionFound;
 
     Solver(GameBoard input) {
         gameBoard = input;
@@ -19,11 +19,9 @@ class Solver {
         solutionFound = false;
     }
 
-    public void searchSolution() throws Exception {
+    abstract public void searchSolution() throws Exception;
 
-    }
-
-    protected void initializeSolver() {
+    void initializeSolver() {
         moveStack = new Stack<>();
         hasRun = false;
         solutionFound = gameBoard.isBoardSolved();
@@ -41,10 +39,11 @@ class Solver {
         return solutionFound;
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void printSolutionStack() {
         if (hasRun && solutionFound) {
-            for (int i = 0; i < moveStack.size(); i++) {
-                System.out.println(moveStack.get(i));
+            for (GameMove aMoveStack : moveStack) {
+                System.out.println(aMoveStack);
             }
         }
 
@@ -57,6 +56,6 @@ class Solver {
         }
     }
 
-    public void printStatistics() {
-    }
+    @SuppressWarnings("UnusedDeclaration")
+    abstract public void printStatistics();
 }

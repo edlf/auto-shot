@@ -1,6 +1,5 @@
 package gui;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -16,13 +15,18 @@ import java.util.ResourceBundle;
  * Main Window controller
  * Filipe Eiras
  */
+@SuppressWarnings("WeakerAccess")
 public class StartWindowController extends GridPane implements Initializable {
+    @SuppressWarnings("UnusedDeclaration")
     @FXML
     Button buttonPlay;
+    @SuppressWarnings("UnusedDeclaration")
     @FXML
     MenuButton algorithmCombo;
+    @SuppressWarnings("UnusedDeclaration")
     @FXML
     Button buttonAutoPlay;
+    @SuppressWarnings("UnusedDeclaration")
     @FXML
     Button buttonCancel;
     private Main application;
@@ -36,27 +40,31 @@ public class StartWindowController extends GridPane implements Initializable {
 
     }
 
-    public void handlePlayButtonAction(ActionEvent event) {
+    @SuppressWarnings("UnusedDeclaration")
+    public void handlePlayButtonAction() {
         if (application != null) {
             application.startGame();
         }
     }
 
-    public void handleAutoPlayButtonAction(ActionEvent event) {
+    @SuppressWarnings("UnusedDeclaration")
+    public void handleAutoPlayButtonAction() {
         if (application != null) {
             application.startGameAuto();
         }
     }
 
-    public void handleLevelSelectButtonAction(ActionEvent event) {
+    @SuppressWarnings("UnusedDeclaration")
+    public void handleLevelSelectButtonAction() {
         if (application != null) {
             application.startLevelSelector();
         }
     }
 
-    public void handleExitButtonAction(ActionEvent event) {
+    @SuppressWarnings("UnusedDeclaration")
+    public void handleExitButtonAction() {
         if (application != null) {
-            application.exit();
+            Main.exit();
         }
     }
 }

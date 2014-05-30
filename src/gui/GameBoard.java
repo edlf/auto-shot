@@ -1,12 +1,12 @@
 package gui;
 
+import com.sun.istack.internal.NotNull;
 import javafx.util.Pair;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Vector;
 
 /**
  * Eduardo Fernandes
@@ -16,24 +16,25 @@ public class GameBoard {
     /* Constants */
     public static final int horizontalSize = 7;
     public static final int verticalSize = 7;
-    public static final int arrayOffset = 1;
-    public static final int minimumDistanceFromEdge = 2;
+    private static final int arrayOffset = 1;
+    private static final int minimumDistanceFromEdge = 2;
 
-    private boolean[][] board;
+    private final boolean[][] board;
 
     /* Save GameBoards + Moves done (GameBoards +1 offset) */
     private int currentMoveIndex;
-    private Vector<boolean[][]> gameBoards;
-    private Vector<GameMove> gameMoves;
+    private ArrayList<boolean[][]> gameBoards;
+    private ArrayList<GameMove> gameMoves;
 
     /* Empty board constructor */
+    @SuppressWarnings("WeakerAccess")
     GameBoard() {
         board = new boolean[horizontalSize][verticalSize];
         clearBoard();
         initializeUndoRedo();
     }
 
-    GameBoard(boolean[][] in) {
+    GameBoard(@NotNull boolean[][] in) {
         board = in;
         initializeUndoRedo();
     }
@@ -41,7 +42,8 @@ public class GameBoard {
     /*
      * Internal map loader
      */
-    GameBoard(String levelFile) throws Exception {
+    @SuppressWarnings("SameParameterValue")
+    GameBoard(@NotNull String levelFile) throws Exception {
         board = new boolean[horizontalSize][verticalSize];
 
         InputStream file = GameBoard.class.getResourceAsStream("levels/" + levelFile);
@@ -90,7 +92,7 @@ public class GameBoard {
     /*
      * Original game level decoder
      */
-    GameBoard(long map) {
+    GameBoard(@NotNull long map) {
         board = new boolean[horizontalSize][verticalSize];
         String binaryString = toBinaryStringCustom(map);
 
@@ -122,7 +124,7 @@ public class GameBoard {
     }
 
     /* Custom toBinaryString (custom padding) */
-    public static String toBinaryStringCustom(long x) {
+    private static String toBinaryStringCustom(@NotNull long x) {
 
         byte[] bytes = new byte[64]; // 64 bits per long
         int pos = 0;
@@ -133,7 +135,7 @@ public class GameBoard {
         } while (x > 0);
 
         String output = "";
-        for (int i = 0 + 15; i < 64; i++) {
+        for (int i = 15; i < 64; i++) {
             switch (bytes[i]) {
                 case 1:
                     output += "1";
@@ -148,10 +150,10 @@ public class GameBoard {
         return output;
     }
 
-    public void initializeUndoRedo() {
+    void initializeUndoRedo() {
         currentMoveIndex = 0;
-        gameBoards = new Vector<>();
-        gameMoves = new Vector<>();
+        gameBoards = new ArrayList<>();
+        gameMoves = new ArrayList<>();
 
         /* Add original board to vector */
         gameBoards.add(getBoardCopy());
@@ -165,7 +167,7 @@ public class GameBoard {
         }
     }
 
-    public boolean[][] getBoardCopy() {
+    boolean[][] getBoardCopy() {
         boolean[][] boardCopy = new boolean[horizontalSize][verticalSize];
         for (int x = 0; x < horizontalSize; x++) {
             System.arraycopy(board[x], 0, boardCopy[x], 0, verticalSize);
@@ -173,8 +175,8 @@ public class GameBoard {
         return boardCopy;
     }
 
-    private ArrayList<GameMove> getAvailableMovesOnPosition(int x, int y) throws Exception {
-        ArrayList<GameMove> moves = new ArrayList<GameMove>(0);
+    public ArrayList<GameMove> getAvailableMovesOnPosition(int x, int y) throws Exception {
+        ArrayList<GameMove> moves = new ArrayList<>(0);
 
         /* Check if there is a sphere on the position */
         if (!board[x][y]) {
@@ -241,7 +243,7 @@ public class GameBoard {
     }
 
     public ArrayList<GameMove> getAvailableMoves() {
-        ArrayList<GameMove> moves = new ArrayList<GameMove>(0);
+        ArrayList<GameMove> moves = new ArrayList<>(0);
 
         /* Get all possible gameMoves from the board */
         for (int y = 0; y < verticalSize; y++) {
@@ -249,7 +251,7 @@ public class GameBoard {
                 try {
                     moves.addAll(getAvailableMovesOnPosition(x, y));
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Main.logSevereAndExit(e);
                 }
             }
         }
@@ -257,7 +259,7 @@ public class GameBoard {
         return moves;
     }
 
-    public void doMove(GameMove move, boolean redo) throws Exception {
+    public void doMove(@NotNull GameMove move, @NotNull boolean redo) throws Exception {
         int x = move.getPieceX();
         int y = move.getPieceY();
 
@@ -265,8 +267,8 @@ public class GameBoard {
 
         ArrayList<GameMove> movesAvailable = getAvailableMovesOnPosition(x, y);
 
-        for (int i = 0; i < movesAvailable.size(); i++) {
-            if (move.equals(movesAvailable.get(i))) {
+        for (GameMove aMovesAvailable : movesAvailable) {
+            if (move.equals(aMovesAvailable)) {
                 /* Move is valid */
                 canContinue = true;
                 break;
@@ -421,16 +423,24 @@ public class GameBoard {
         }
     }
 
+    public boolean isUndoAvailable(){
+        return currentMoveIndex > 0 && gameMoves.size() > 0;
+    }
+
     public void undoMove() {
-        if (currentMoveIndex > 0 && gameMoves.size() > 0) {
+        if (isUndoAvailable()) {
             currentMoveIndex--;
             restoreBoard(gameBoards.get(currentMoveIndex));
         }
     }
 
-    public void redoMove() {
+    public boolean isRedoAvailable(){
         /* Save GameBoards + Moves done (GameBoards +1 offset) */
-        if (currentMoveIndex < gameMoves.size()) {
+        return currentMoveIndex < gameMoves.size();
+    }
+
+    public void redoMove() {
+        if (isRedoAvailable()) {
             try {
                 doMove(gameMoves.get(currentMoveIndex), true);
             } catch (Exception e) {
@@ -439,7 +449,7 @@ public class GameBoard {
         }
     }
 
-    private void restoreBoard(boolean[][] restore) {
+    private void restoreBoard(@NotNull boolean[][] restore) {
         for (int x = 0; x < horizontalSize; x++) {
             System.arraycopy(restore[x], 0, board[x], 0, verticalSize);
         }
@@ -472,18 +482,15 @@ public class GameBoard {
     }
 
     public boolean isBoardLost() {
-        ArrayList<GameMove> temp = null;
         try {
-            temp = getAvailableMoves();
+            ArrayList<GameMove> availableMoves = getAvailableMoves();
+            return availableMoves.size() <= 0 && !isBoardSolved();
+
         } catch (Exception e) {
-            e.printStackTrace();
+            Main.logSevereAndExit(e);
         }
 
-        if (temp.size() > 0) {
-            return false;
-        } else {
-            return !isBoardSolved();
-        }
+        return true;
     }
 
     @Override

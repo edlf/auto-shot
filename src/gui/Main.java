@@ -17,6 +17,7 @@ import java.util.logging.Logger;
  * Eduardo Fernandes
  * Filipe Eiras
  */
+@SuppressWarnings("WeakerAccess")
 public class Main extends Application {
     /* Constants */
     private static final String mainWindowTitle = "Auto-Shot";
@@ -28,6 +29,11 @@ public class Main extends Application {
 
     public static Image sphereImage;
     public static Image selectedSphereImage;
+
+    public static Image leftArrowImage;
+    public static Image rightArrowImage;
+    public static Image upArrowImage;
+    public static Image downArrowImage;
     public static GameBoard selectedBoard = null;
 
     /* JavaFX */
@@ -63,6 +69,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         loadResources();
+        selectedBoard = new GameBoard("level7500.map");
 
         try {
             stage = primaryStage;
@@ -78,14 +85,16 @@ public class Main extends Application {
     private void loadResources() {
         logInfo("Loading resources...");
         try {
-            logInfo("Loading wSphere.png...");
-            sphereImage = new Image(Main.class.getResourceAsStream("resources/wSphere.png"));
-            logInfo("Loading cSphere.png...");
-            selectedSphereImage = new Image(Main.class.getResourceAsStream("resources/cSphere.png"));
+            sphereImage = new Image(Main.class.getResourceAsStream("resources/sphere_white.png"));
+            selectedSphereImage = new Image(Main.class.getResourceAsStream("resources/sphere_blue.png"));
+            leftArrowImage = new Image(Main.class.getResourceAsStream("resources/arrow_left.png"));
+            rightArrowImage = new Image(Main.class.getResourceAsStream("resources/arrow_right.png"));
+            upArrowImage = new Image(Main.class.getResourceAsStream("resources/arrow_up.png"));
+            downArrowImage = new Image(Main.class.getResourceAsStream("resources/arrow_down.png"));
         } catch (IllegalArgumentException e) {
-            logSevereAndExit("Problems while loading resources, exiting.");
+            logSevereAndExit("Some resources could not be loaded, exiting.");
         }
-
+        logInfo("Resources loaded");
     }
 
     public void gotoStartWindow() {
@@ -144,14 +153,11 @@ public class Main extends Application {
      */
     private Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        InputStream in = Main.class.getResourceAsStream(fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
         loader.setLocation(Main.class.getResource(fxml));
         GridPane page;
-        try {
+        try (InputStream in = Main.class.getResourceAsStream(fxml)) {
             page = loader.load(in);
-        } finally {
-            in.close();
         }
         Scene scene = new Scene(page);
         stage.setScene(scene);

@@ -5,45 +5,75 @@ import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuButton;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.*;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Stack;
-import java.util.Vector;
 
 /**
  * Eduardo Fernandes
  * Filipe Eiras
  */
+@SuppressWarnings("WeakerAccess")
 public class GameWindowAutoController extends GridPane implements Initializable {
     Main application1;
+    @SuppressWarnings("UnusedDeclaration")
     @FXML
     Pane mainPane;
+    @SuppressWarnings("UnusedDeclaration")
     @FXML
     GridPane gameGrid;
+    @SuppressWarnings("UnusedDeclaration")
     @FXML
     Label lblNumberOfMovesDone;
+    @SuppressWarnings("UnusedDeclaration")
     @FXML
     Label lblNumberOfAvailableMoves;
+    @SuppressWarnings("UnusedDeclaration")
     @FXML
     Label lblIsSolved;
+    @SuppressWarnings("UnusedDeclaration")
     @FXML
     Label lblIsLost;
+    @SuppressWarnings("UnusedDeclaration")
     @FXML
-    ListView listViewMoves;
-    EventHandler<KeyEvent> keyboardEventHandler;
-    EventHandler<MouseEvent> mouseEventHandler;
-    EventHandler<SwipeEvent> swipeEventHandler;
+    Button upButton;
+    @SuppressWarnings("UnusedDeclaration")
+    @FXML
+    Button downButton;
+    @SuppressWarnings("UnusedDeclaration")
+    @FXML
+    Button leftButton;
+    @SuppressWarnings("UnusedDeclaration")
+    @FXML
+    Button rightButton;
+    @SuppressWarnings("UnusedDeclaration")
+    @FXML
+    Button undoButton;
+    @SuppressWarnings("UnusedDeclaration")
+    @FXML
+    Button redoButton;
+    @SuppressWarnings("UnusedDeclaration")
+    @FXML
+    ListView<String> listViewMoves;
+    @SuppressWarnings("UnusedDeclaration")
+    @FXML
+    MenuButton algorithmCombo;
+
+    private EventHandler<MouseEvent> mouseEventHandler;
     private GameBoard gameBoard;
     private ImageView[][] spheres;
     private int selectedX = -1, selectedY = -1;
-    private Vector<String> movesListVector;
     private int algorithm = 0; //0 for DFS, 1 for BFS
 
     public void setApp(Main application) {
@@ -53,11 +83,7 @@ public class GameWindowAutoController extends GridPane implements Initializable 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            if (Main.selectedBoard != null) {
-                gameBoard = Main.selectedBoard;
-            } else {
-                gameBoard = new GameBoard("level7500.map");
-            }
+            gameBoard = Main.selectedBoard;
             setupBoard();
             updateGUI();
             createEventHandlers();
@@ -82,64 +108,6 @@ public class GameWindowAutoController extends GridPane implements Initializable 
                 clearSelection();
             }
         };
-
-        keyboardEventHandler = new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (isSelected()) {
-                    if (event.getEventType() == KeyEvent.KEY_TYPED) {
-                        if (event.getCode() == KeyCode.UP) {
-                            doMove(selectedX, selectedY, GameMove.MoveUp);
-                            return;
-                        }
-
-                        if (event.getCode() == KeyCode.DOWN) {
-                            doMove(selectedX, selectedY, GameMove.MoveDown);
-                            return;
-                        }
-                        if (event.getCode() == KeyCode.LEFT) {
-                            doMove(selectedX, selectedY, GameMove.MoveLeft);
-                            return;
-                        }
-                        if (event.getCode() == KeyCode.RIGHT) {
-                            doMove(selectedX, selectedY, GameMove.MoveRight);
-                            return;
-                        }
-                    }
-                }
-            }
-        };
-
-        swipeEventHandler = new EventHandler<SwipeEvent>() {
-            @Override
-            public void handle(SwipeEvent event) {
-                for (int x = 0; x < GameBoard.horizontalSize; x++) {
-                    for (int y = 0; y < GameBoard.verticalSize; y++) {
-                        if (event.getTarget() == spheres[x][y]) {
-                            if (event.getEventType() == SwipeEvent.SWIPE_UP) {
-                                doMove(x, y, GameMove.MoveUp);
-                                return;
-                            }
-
-                            if (event.getEventType() == SwipeEvent.SWIPE_DOWN) {
-                                doMove(x, y, GameMove.MoveDown);
-                                return;
-                            }
-
-                            if (event.getEventType() == SwipeEvent.SWIPE_LEFT) {
-                                doMove(x, y, GameMove.MoveLeft);
-                                return;
-                            }
-
-                            if (event.getEventType() == SwipeEvent.SWIPE_RIGHT) {
-                                doMove(x, y, GameMove.MoveRight);
-                                return;
-                            }
-                        }
-                    }
-                }
-            }
-        };
     }
 
     private void setupBoard() {
@@ -157,10 +125,13 @@ public class GameWindowAutoController extends GridPane implements Initializable 
     private void updateGUI() {
         updateBoard();
         updateStats();
+        updateButtons();
     }
 
+    // Duplicated method from GameWindowController
     private void updateBoard() {
         try {
+            // Sphere draw
             for (int x = 0; x < GameBoard.horizontalSize; x++) {
                 for (int y = 0; y < GameBoard.verticalSize; y++) {
                     if (gameBoard.getBoardPiece(x, y)) {
@@ -175,6 +146,38 @@ public class GameWindowAutoController extends GridPane implements Initializable 
                     }
                 }
             }
+
+            // Available moves draw
+            if (isSelected()) {
+                ArrayList<GameMove> moves = gameBoard.getAvailableMovesOnPosition(selectedX, selectedY);
+                for (GameMove gameMove : moves) {
+                    switch (gameMove.getDirection()) {
+                        case GameMove.MoveUp:
+                            spheres[selectedX][selectedY - 1].setImage(Main.upArrowImage);
+                            spheres[selectedX][selectedY - 1].setVisible(true);
+                            break;
+
+                        case GameMove.MoveDown:
+                            spheres[selectedX][selectedY + 1].setImage(Main.downArrowImage);
+                            spheres[selectedX][selectedY + 1].setVisible(true);
+                            break;
+
+                        case GameMove.MoveLeft:
+                            spheres[selectedX - 1][selectedY].setImage(Main.leftArrowImage);
+                            spheres[selectedX - 1][selectedY].setVisible(true);
+                            break;
+
+                        case GameMove.MoveRight:
+                            spheres[selectedX + 1][selectedY].setImage(Main.rightArrowImage);
+                            spheres[selectedX + 1][selectedY].setVisible(true);
+                            break;
+
+                        default:
+                            Main.logSevereAndExit("Invalid move on updateBoard");
+                    }
+                }
+            }
+
         } catch (Exception e) {
             Main.logSevereAndExit(e);
         }
@@ -198,6 +201,47 @@ public class GameWindowAutoController extends GridPane implements Initializable 
         }
     }
 
+    private void updateButtons() {
+        upButton.setDisable(true);
+        downButton.setDisable(true);
+        leftButton.setDisable(true);
+        rightButton.setDisable(true);
+
+        if (isSelected()) {
+            try {
+                ArrayList<GameMove> moves = gameBoard.getAvailableMovesOnPosition(selectedX, selectedY);
+                for (GameMove gameMove : moves) {
+                    switch (gameMove.getDirection()) {
+                        case GameMove.MoveUp:
+                            upButton.setDisable(false);
+                            break;
+
+                        case GameMove.MoveDown:
+                            downButton.setDisable(false);
+                            break;
+
+                        case GameMove.MoveLeft:
+                            leftButton.setDisable(false);
+                            break;
+
+                        case GameMove.MoveRight:
+                            rightButton.setDisable(false);
+                            break;
+
+                        default:
+                            Main.logSevereAndExit("Invalid move on updateButtons");
+                    }
+                }
+            } catch (Exception e) {
+                Main.logSevereAndExit(e);
+            }
+
+        }
+
+        undoButton.setDisable(!gameBoard.isUndoAvailable());
+        redoButton.setDisable(!gameBoard.isRedoAvailable());
+    }
+
     private void clearSelection() {
         selectedX = -1;
         selectedY = -1;
@@ -211,11 +255,7 @@ public class GameWindowAutoController extends GridPane implements Initializable 
     }
 
     private boolean isSelected() {
-        if (selectedX == -1 && selectedY == -1) {
-            return false;
-        } else {
-            return true;
-        }
+        return !(selectedX == -1 && selectedY == -1);
     }
 
     private void doMove(int x, int y, char direction) {
@@ -233,69 +273,79 @@ public class GameWindowAutoController extends GridPane implements Initializable 
         }
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleUpButtonAction() {
         doMove(selectedX, selectedY, GameMove.MoveUp);
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleDownButtonAction() {
         doMove(selectedX, selectedY, GameMove.MoveDown);
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleLeftButtonAction() {
         doMove(selectedX, selectedY, GameMove.MoveLeft);
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleRightButtonAction() {
         doMove(selectedX, selectedY, GameMove.MoveRight);
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleUndoButtonAction() {
         gameBoard.undoMove();
         clearSelection();
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleRedoButtonAction() {
         gameBoard.redoMove();
         clearSelection();
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleFindSolutionsButtonAction() {
         try {
-            movesListVector = new Vector<>();
+            ArrayList<String> movesList = new ArrayList<>();
             Solver tempSolver;
             if (algorithm == 0)
                 tempSolver = new SolverDFS(gameBoard);
             else
-                tempSolver = new SolverAStar(gameBoard);
+                tempSolver = new SolverHeuristicBFS(gameBoard);
             tempSolver.searchSolution();
             if (tempSolver.getIsSolutionFound()) {
                 Stack<GameMove> solutions = tempSolver.getSolution();
 
-                for (int i = 0; i < solutions.size(); i++) {
-                    movesListVector.add(solutions.get(i).toString());
+                for (GameMove solution : solutions) {
+                    movesList.add(solution.toString());
 
                 }
 
-                ObservableList<String> dItems = FXCollections.observableArrayList(movesListVector);
+                ObservableList<String> dItems = FXCollections.observableArrayList(movesList);
                 listViewMoves.setItems(dItems);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Main.logSevereAndExit(e);
         }
 
         updateGUI();
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleDFS() {
         algorithm = 0;
         System.out.println("DFS selected");
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleBFS() {
         algorithm = 1;
         System.out.println("BFS selected");
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void handleExitButtonAction() {
         application1.gotoStartWindow();
     }

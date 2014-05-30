@@ -10,7 +10,7 @@ public class GameMoveTest {
 
     @Test
     public void test01validateInitialSetup() throws Exception {
-        //noinspection ConstantConditions
+        //noinspection ConstantConditions,PointlessBooleanExpression
         if (GameBoard.verticalSize < 5 || GameBoard.horizontalSize < 5) {
             throw new Exception("Board too small!");
         }
