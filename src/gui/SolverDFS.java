@@ -61,6 +61,14 @@ public class SolverDFS extends Solver {
         System.out.println("Number of moves tried: " + Integer.toString(numberOfMovesTried));
     }
 
+    public int getNumberOfBackTracks(){
+        return numberOfBackTracks;
+    }
+
+    public int getNumberOfMovesTried(){
+        return numberOfMovesTried;
+    }
+
     @Override
     public String toString() {
         return "DFS Algorithm";

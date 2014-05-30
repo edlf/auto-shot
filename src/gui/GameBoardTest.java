@@ -256,6 +256,8 @@ public class GameBoardTest {
 
     @Test
     public void testSolveOriginalLevels() throws Exception {
+        long numberOfMovesTriedDFS=0, numberOfBacktracksDFS=0;
+        long numberOfMovesTriedAS=0, numberOfBacktracksAS=0;
         long[][] levels = MapSelectorController.loadLevels();
 
         if (levels.length == 7 && levels[0].length == 500) {
@@ -264,6 +266,21 @@ public class GameBoardTest {
                     GameBoard temp = new GameBoard(levels[i][j]);
                     SolverDFS tempSolver = new SolverDFS(temp);
                     tempSolver.searchSolution();
+                    /* Compare */
+                    numberOfBacktracksDFS += tempSolver.getNumberOfBackTracks();
+                    numberOfMovesTriedDFS += tempSolver.getNumberOfMovesTried();
+
+                    if (!tempSolver.getIsSolutionFound()) {
+                        throw new Exception("Level " + Integer.toString(i) + " " + Integer.toString(j) + "could not be solved!");
+                    }
+
+                    temp = new GameBoard(levels[i][j]);
+                    SolverAStar tempSolver2 = new SolverAStar(temp);
+                    tempSolver2.searchSolution();
+                    /* Compare */
+                    numberOfBacktracksAS += tempSolver2.getNumberOfBackTracks();
+                    numberOfMovesTriedAS += tempSolver2.getNumberOfMovesTried();
+
                     if (!tempSolver.getIsSolutionFound()) {
                         throw new Exception("Level " + Integer.toString(i) + " " + Integer.toString(j) + "could not be solved!");
                     }
@@ -272,6 +289,9 @@ public class GameBoardTest {
         } else {
             throw new Exception("Levels are missing!");
         }
+
+        System.out.println("DFS: Moves: " + Long.toString(numberOfMovesTriedDFS) + " Backtracks: " + Long.toString(numberOfBacktracksDFS));
+        System.out.println("AS : Moves: " + Long.toString(numberOfMovesTriedAS) + " Backtracks: " + Long.toString(numberOfBacktracksAS));
     }
 
 }
