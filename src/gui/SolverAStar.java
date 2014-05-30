@@ -29,6 +29,7 @@ public class SolverAStar extends Solver {
     protected int linesChoice(int i, ArrayList<GameMove> availableMoves) throws Exception {
         gameBoard.doMove(availableMoves.get(i), false);
         int lines = getVerticalLines();
+        lines += getHorizontalLines();
         gameBoard.undoMove();
         gameBoard.removeExtra();
         return lines;
@@ -53,6 +54,23 @@ public class SolverAStar extends Solver {
         int lines = 0;
         for (int i = 0; i < gameBoard.getSize().getKey(); i++) {
             for (int j = 0; j < gameBoard.getSize().getValue(); j++) {
+                try {
+                    if (gameBoard.getBoardPiece(i, j)) {
+                        lines++;
+                        break;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return lines;
+    }
+
+    public int getHorizontalLines() {
+        int lines = 0;
+        for (int j = 0; j < gameBoard.getSize().getValue(); j++) {
+            for (int i = 0; i < gameBoard.getSize().getKey(); i++) {
                 try {
                     if (gameBoard.getBoardPiece(i, j)) {
                         lines++;
