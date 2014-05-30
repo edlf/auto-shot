@@ -27,6 +27,7 @@ public class GameWindowAutoController extends GridPane implements Initializable 
     private ImageView[][] spheres;
     private int selectedX = -1, selectedY = -1;
     private Vector<String> movesListVector;
+    private int algorithm = 0; //0 for DFS, 1 for BFS
 
     @FXML
     Pane mainPane;
@@ -266,7 +267,11 @@ public class GameWindowAutoController extends GridPane implements Initializable 
     public void handleFindSolutionsButtonAction(){
         try {
             movesListVector = new Vector<>();
-            SolverDFS tempSolver = new SolverDFS(gameBoard);
+            Solver tempSolver;
+            if(algorithm == 0)
+                tempSolver = new SolverDFS(gameBoard);
+            else
+                tempSolver = new SolverAStar(gameBoard);
             tempSolver.searchSolution();
             if (tempSolver.getIsSolutionFound()){
                 Stack<GameMove> solutions = tempSolver.getSolution();
@@ -284,6 +289,16 @@ public class GameWindowAutoController extends GridPane implements Initializable 
         }
 
         updateGUI();
+    }
+
+    public void handleDFS(){
+        algorithm = 0;
+        System.out.println("DFS selected");
+    }
+
+    public void handleBFS(){
+        algorithm = 1;
+        System.out.println("BFS selected");
     }
 
     public void handleExitButtonAction() {
