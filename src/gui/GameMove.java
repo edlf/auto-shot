@@ -87,10 +87,9 @@ class GameMove {
         GameMove gameMove = (GameMove) o;
 
         if (direction != gameMove.direction) return false;
-        if (pieceX != gameMove.pieceX) return false;
-        if (pieceY != gameMove.pieceY) return false;
-
-        return true;
+        else if (pieceX != gameMove.pieceX) return false;
+        else if (pieceY != gameMove.pieceY) return false;
+        else return true;
     }
 
     @Override

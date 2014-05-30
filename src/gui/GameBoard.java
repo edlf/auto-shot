@@ -145,7 +145,7 @@ public class GameBoard {
         return output;
     }
 
-    private void initializeUndoRedo(){
+    public void initializeUndoRedo(){
         currentMoveIndex = 0;
         gameBoards = new Vector<>();
         gameMoves = new Vector<>();
@@ -162,7 +162,7 @@ public class GameBoard {
         }
     }
 
-    private boolean[][] getBoardCopy() {
+    public boolean[][] getBoardCopy() {
         boolean[][] boardCopy = new boolean[horizontalSize][verticalSize];
         for (int x = 0; x < horizontalSize; x++) {
             System.arraycopy(board[x], 0, boardCopy[x], 0, verticalSize);
@@ -512,7 +512,15 @@ public class GameBoard {
     public Pair<Integer,Integer> getSize(){
         int horizontal = board.length;
         int vertical = board[0].length;
-        Pair size = new Pair(horizontal,vertical);
-        return size;
+        return new Pair<>(horizontal,vertical);
+    }
+
+    public void removeExtra(){
+        for (int i = currentMoveIndex + 1; i < gameBoards.size() ; i++) {
+            gameBoards.remove(i);
+        }
+        for (int i = currentMoveIndex; i < gameMoves.size(); i++) {
+            gameMoves.remove(i);
+        }
     }
 }

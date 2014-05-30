@@ -1,5 +1,8 @@
 package gui;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -22,25 +25,19 @@ public class SolverAStar extends Solver {
         solutionFound = gameBoard.isBoardSolved();
     }
 
-    protected int linesChoice(int i) throws Exception{
-        attemptMove(gameBoard.getAvailableMoves().get(i));
-        numberOfMovesTried--;
-        int lines = getHorizontalLines();
-        backtrack();
-        numberOfBackTracks--;
+    protected int linesChoice(int i,ArrayList<GameMove> availableMoves) throws Exception{
+        gameBoard.doMove(availableMoves.get(i),false);
+        int lines = getVerticalLines();
+        gameBoard.undoMove();
+        gameBoard.removeExtra();
         return lines;
     }
 
-    protected int bestChoice() throws Exception{
-        int choice = 0;
-        int lines = gameBoard.getSize().getKey()+1;
-        for (int i = 0; i < gameBoard.getNumberOfAvailableMoves();i++){
-            if (lines > linesChoice(i)){
-                choice = i;
-                lines = linesChoice(i);
-            }
+    protected void orderChoices(ArrayList<GameMove> availableMoves,List<MoveValues> moves) throws Exception{
+        for (int i = 0; i < availableMoves.size();i++){
+            moves.add(new MoveValues(i,linesChoice(i,availableMoves)));
         }
-        return choice;
+        Collections.sort(moves);
     }
 
     public void searchSolution() throws Exception{
@@ -51,7 +48,7 @@ public class SolverAStar extends Solver {
         hasRun = true;
     }
 
-    public int getHorizontalLines(){
+    public int getVerticalLines(){
         int lines = 0;
         for( int i = 0; i < gameBoard.getSize().getKey(); i++ ) {
             for (int j = 0; j < gameBoard.getSize().getValue(); j++){
@@ -68,41 +65,30 @@ public class SolverAStar extends Solver {
         return lines;
     }
 
-    /* TODO Adapt to AStar */
     private void searchSolutionAux() throws Exception{
-        /* Try available moves */
-        int choice = 0;
-        if(gameBoard.getNumberOfAvailableMoves()>0) {
-            choice = bestChoice();
-            attemptMove(gameBoard.getAvailableMoves().get(choice));
+        //ArrayList<GameMove> availableMoves = gameBoard.getAvailableMoves();
+        List<MoveValues> moves = new ArrayList<>();
+        orderChoices(gameBoard.getAvailableMoves(), moves);
 
+        for (int i = 0; i < moves.size(); i++) {
+            if (solutionFound) {
+                return;
+            }
+            attemptMove(gameBoard.getAvailableMoves().get(moves.get(i).number));
             solutionFound = gameBoard.isBoardSolved();
-            if (solutionFound) return;
+
+            /* Stop recursion if the solution has been found */
+            if (solutionFound) {
+                return;
+            }
+
             searchSolutionAux();
         }
-        if (!solutionFound){
-            backtrack();
-
-            for (int i = 0; i < gameBoard.getNumberOfAvailableMoves(); i++) {
-                if(i != choice) {
-                    attemptMove(gameBoard.getAvailableMoves().get(i));
-                    solutionFound = gameBoard.isBoardSolved();
-
-                    /* Stop recursion if the solution has been found */
-                    if (solutionFound) {
-                        return;
-                    }
-
-                    searchSolutionAux();
-                }
-            }
 
         /* No more moves and no solution? backtrack */
-            if (!solutionFound) {
-                backtrack();
-            }
+        if (!solutionFound) {
+            backtrack();
         }
-
     }
 
     private void backtrack(){

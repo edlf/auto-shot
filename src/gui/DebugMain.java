@@ -32,6 +32,7 @@ class DebugMain {
                 System.out.println(" 6) Undo");
                 System.out.println(" 7) Redo");
                 System.out.println(" 8) Decode Long Level");
+                System.out.println(" 9) Attempt A*");
                 System.out.println("10) Attempt DFS");
                 System.out.println("99) Exit");
 
@@ -98,6 +99,13 @@ class DebugMain {
                         System.out.print("Input Level:");
                         long level = sc.nextLong();
                         temp = new GameBoard(level);
+                        break;
+
+                    case 9:
+                        SolverAStar tempSolverA = new SolverAStar(temp);
+                        tempSolverA.searchSolution();
+                        tempSolverA.printSolutionStack();
+                        tempSolverA.printStatistics();
                         break;
 
                     case 10:
